@@ -222,6 +222,40 @@ export default function Index() {
                   the web.
                 </p>
               </div>
+
+              {/* Stats Cards - positioned below text content */}
+              <div className="grid grid-cols-3 gap-4 max-w-lg mt-12">
+                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
+                  <div className="text-[30px] font-bold text-primary leading-[36px]">
+                    3+
+                  </div>
+                  <div className="text-[16px] text-black mt-2 leading-[24px]">
+                    Years
+                    <br />
+                    Experience
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
+                  <div className="text-[30px] font-bold text-primary leading-[36px]">
+                    25+
+                  </div>
+                  <div className="text-[16px] text-black mt-2 leading-[24px]">
+                    Projects
+                    <br />
+                    Completed
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
+                  <div className="text-[30px] font-bold text-primary leading-[36px]">
+                    100%
+                  </div>
+                  <div className="text-[16px] text-black mt-2 leading-[24px]">
+                    Client
+                    <br />
+                    Satisfaction
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -285,7 +319,7 @@ export default function Index() {
               {/* Project Details */}
               <div className="space-y-8">
                 <div className="flex items-center gap-4">
-                  <span className="text-3xl">🎯</span>
+                  <span className="text-3xl">����</span>
                   <h3 className="text-3xl font-bold text-black">
                     Interactive Dashboard
                   </h3>
