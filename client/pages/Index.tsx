@@ -178,13 +178,6 @@ export default function Index() {
                   alt="Jenna Kim"
                   className="w-full rounded-3xl shadow-2xl"
                 />
-
-                {/* About Jenna overlay text */}
-                <div className="absolute bottom-8 left-8 right-8">
-                  <h3 className="text-[48px] font-bold text-gray-400 leading-[48px] opacity-60">
-                    About Jenna
-                  </h3>
-                </div>
               </div>
 
               {/* Stats Cards - positioned below image */}
