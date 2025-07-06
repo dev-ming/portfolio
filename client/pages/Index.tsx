@@ -46,7 +46,12 @@ export default function Index() {
               const elementPosition = element.offsetTop - headerHeight;
               window.scrollTo({ top: elementPosition, behavior: 'smooth' });
             }
-          }}>Jenna</div>
+          }}>
+            <div className="flex items-center gap-2">
+              <img src="/public/cat.png" alt="Jenna" className="w-12 h-12" />
+              {/* <span className="text-primary">Jenna</span> */}
+            </div>
+          </div>
           <div className="hidden md:flex items-center gap-6">
             <button 
               className="text-black hover:text-primary transition-colors"
