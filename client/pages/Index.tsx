@@ -73,7 +73,7 @@ export default function Index() {
             <div className="text-[30px] text-black max-w-lg mx-auto leading-[36px] mt-8">
               I craft{" "}
               <span className="relative font-semibold">
-                <span className="absolute -bottom-2 left-0 w-full h-4 bg-gray-100 rounded-full opacity-40"></span>
+                <span className="absolute -bottom-2 left-0 w-full h-4 bg-gray-100 opacity-40"></span>
                 <span className="relative">beautiful digital experiences</span>
               </span>
             </div>
