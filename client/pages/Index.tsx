@@ -165,19 +165,29 @@ export default function Index() {
       <section className="py-20 px-6 relative">
         <div className="container mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left: Image only */}
+            {/* Left: Card with two overlapping rectangles */}
             <div className="relative">
               {/* Background blur effects */}
               <div className="absolute -top-8 -left-8 w-40 h-40 rounded-full bg-pink-200 opacity-30 blur-[24px]"></div>
               <div className="absolute bottom-8 -right-8 w-32 h-32 rounded-full bg-pink-300 opacity-40 blur-[20px]"></div>
 
-              {/* Main image */}
-              <div className="relative">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/015358185d8f770563590403b8e82ee12511a3f8?width=1082"
-                  alt="Jenna Kim"
-                  className="w-full rounded-3xl shadow-2xl"
-                />
+              {/* Two overlapping rectangles */}
+              <div className="relative w-full aspect-[4/5] max-w-lg mx-auto">
+                {/* Base white rectangle */}
+                <div className="absolute inset-0 bg-white rounded-3xl shadow-2xl"></div>
+
+                {/* Pink tilted overlay rectangle */}
+                <div
+                  className="absolute inset-4 rounded-3xl shadow-lg transform rotate-3"
+                  style={{ backgroundColor: "rgba(236, 72, 153, 0.15)" }}
+                ></div>
+
+                {/* About Jenna text overlay */}
+                <div className="absolute bottom-8 left-8 right-8 z-10">
+                  <h3 className="text-[48px] font-bold text-gray-400 leading-[48px] opacity-60">
+                    About Jenna
+                  </h3>
+                </div>
               </div>
             </div>
 
@@ -319,7 +329,7 @@ export default function Index() {
               {/* Project Details */}
               <div className="space-y-8">
                 <div className="flex items-center gap-4">
-                  <span className="text-3xl">����</span>
+                  <span className="text-3xl">🎯</span>
                   <h3 className="text-3xl font-bold text-black">
                     Interactive Dashboard
                   </h3>
