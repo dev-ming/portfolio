@@ -79,9 +79,9 @@ export default function Index() {
             </div>
             <div className="text-[18px] text-black max-w-2xl mx-auto leading-[29.25px] mt-8">
               Specializing in front-end development with a passion for{" "}
-              <span className="font-bold">clean code</span>
-              <span className="relative ml-1">
-                <span className="absolute -bottom-1 left-0 w-24 h-2 bg-primary/25 rounded-full"></span>
+              <span className="font-bold relative">
+                clean code
+                <span className="absolute -bottom-1 left-0 w-full h-2 bg-primary/25 rounded-full"></span>
               </span>
               , intuitive design, and seamless user interactions that bring
               ideas to life.
