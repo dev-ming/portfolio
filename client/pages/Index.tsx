@@ -66,7 +66,7 @@ export default function Index() {
             <div className="text-[20px] text-black max-w-2xl mx-auto relative leading-[28px] mt-8">
               but you can call me{" "}
               <span className="relative">
-                <span className="absolute -bottom-1 left-0 w-full h-3 bg-primary/30 rounded-full"></span>
+                <span className="absolute -bottom-1 left-0 w-full h-3 bg-primary/30"></span>
                 <span className="relative font-medium">Jenna</span>
               </span>
             </div>
