@@ -38,7 +38,7 @@ export default function Index() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-50 h-20">
         <div className="container mx-auto px-6 h-full flex items-center justify-between">
-          <div className="text-2xl font-bold text-transparent">Jenna</div>
+          <div className="text-2xl font-bold text-pink-500 hover:text-pink-600 transition-colors">Jenna</div>
           <button className="p-2">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
@@ -66,14 +66,14 @@ export default function Index() {
             <div className="text-[20px] text-black max-w-2xl mx-auto relative leading-[28px] mt-8">
               but you can call me{" "}
               <span className="relative">
-                <span className="absolute -bottom-1 left-0 w-full h-3 bg-primary/30"></span>
+                <span className="absolute -bottom-1 left-0 w-full h-3 bg-primary/30 opacity-40"></span>
                 <span className="relative font-medium">Jenna</span>
               </span>
             </div>
             <div className="text-[30px] text-black max-w-lg mx-auto leading-[36px] mt-8">
               I craft{" "}
               <span className="relative font-semibold">
-                <span className="absolute -bottom-2 left-0 w-full h-4 bg-gray-100 opacity-40"></span>
+                {/* <span className="absolute -bottom-2 left-0 w-full h-4 bg-purple-200 opacity-40"></span> */}
                 <span className="relative">beautiful digital experiences</span>
               </span>
             </div>
@@ -81,7 +81,7 @@ export default function Index() {
               Specializing in front-end development with a passion for{" "}
               <span className="font-bold relative">
                 clean code
-                <span className="absolute -bottom-1 left-0 w-full h-2 bg-primary/25"></span>
+                <span className="absolute -bottom-1 left-0 w-full h-2 bg-primary/35 opacity-40"></span>
               </span>
               , intuitive design, and seamless user interactions that bring
               ideas to life.
@@ -178,7 +178,7 @@ export default function Index() {
 
                 {/* Pink tilted overlay rectangle */}
                 <div
-                  className="absolute inset-4 rounded-3xl shadow-lg transform rotate-3"
+                  className="absolute inset-0 rounded-3xl shadow-lg transform rotate-3"
                   style={{ backgroundColor: "rgba(236, 72, 153, 0.15)" }}
                 ></div>
 
@@ -206,11 +206,12 @@ export default function Index() {
                 <div className="w-16 h-1 bg-primary rounded-full"></div>
               </div>
 
-              <div className="space-y-6 text-[18px] text-black leading-[29.25px] max-w-lg">
+              <div className="space-y-6 text-[18px] text-black leading-[29.25px] max-w-xl">
                 <p>
                   I'm a passionate front-end developer who believes that{" "}
-                  <span className="font-semibold">
+                  <span className="font-semibold relative whitespace-nowrap">
                     great design meets functionality
+                    <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
                   </span>{" "}
                   in every pixel. With a keen eye for detail and a love for
                   clean, efficient code, I transform creative visions into
@@ -219,7 +220,10 @@ export default function Index() {
                 <p>
                   My journey in web development started with curiosity and has
                   evolved into a deep appreciation for{" "}
-                  <span className="font-semibold">user-centered design</span>{" "}
+                  <span className="font-semibold relative whitespace-nowrap">
+                    user-centered design
+                    <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
+                  </span>{" "}
                   and modern development practices. I specialize in React,
                   TypeScript, and creating responsive interfaces that work
                   beautifully across all devices.
@@ -228,13 +232,16 @@ export default function Index() {
                   When I'm not coding, you'll find me exploring the latest
                   design trends, contributing to open-source projects, or
                   experimenting with new animation libraries to bring more{" "}
-                  <span className="font-semibold">life and personality</span> to
-                  the web.
+                  <span className="font-semibold relative">
+                    life and personality
+                    <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
+                  </span>{" "}
+                  to the web.
                 </p>
               </div>
 
               {/* Stats Cards - positioned below text content */}
-              <div className="grid grid-cols-3 gap-4 max-w-lg mt-12">
+              {/* <div className="grid grid-cols-3 gap-4 max-w-lg mt-12">
                 <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
                   <div className="text-[30px] font-bold text-primary leading-[36px]">
                     3+
@@ -265,7 +272,7 @@ export default function Index() {
                     Satisfaction
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -277,26 +284,29 @@ export default function Index() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <div className="text-6xl mb-8">✨</div>
-            <div className="flex items-center justify-center gap-2 mb-4">
+            {/* <div className="flex items-center justify-center gap-2 mb-4">
               <div className="w-3 h-3 rounded-full bg-primary"></div>
               <div className="w-20 h-1 bg-gradient-to-r from-primary-700 to-primary rounded-full"></div>
               <div className="w-3 h-3 rounded-full bg-primary"></div>
-            </div>
+            </div> */}
             <div className="space-y-4">
               <div className="flex items-center justify-center gap-4">
                 <h2 className="text-5xl font-bold text-black">My</h2>
-                <div className="w-48 h-4 bg-primary/20 rounded-full opacity-20"></div>
-                <h2 className="text-5xl font-bold text-black">Projects</h2>
+                <div className="relative">
+                  <div className="w-48 h-4 bg-primary/20 absolute -bottom-1"></div>
+                  <h2 className="text-5xl font-bold text-black">Projects</h2>
+                </div>
                 <div className="text-5xl font-bold text-transparent absolute">
                   Favorite
                 </div>
               </div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Here are some projects that make my heart happy! Each one is
-                crafted with{" "}
+                crafted{" "}
+                <br />
                 <span className="relative">
-                  <span className="absolute -bottom-1 left-0 w-full h-3 bg-yellow-200 rounded-full opacity-30"></span>
-                  <span className="relative font-medium">love, creativity</span>
+                  <span className="absolute -bottom-1 left-0 w-full h-3 bg-yellow-200 opacity-30"></span>
+                  <span className="relative font-medium">with love, creativity</span>
                 </span>{" "}
                 and lots of coffee ☕
               </p>
@@ -306,20 +316,18 @@ export default function Index() {
           {/* Featured Project */}
           <div className="bg-pink-50/50 rounded-3xl p-8 lg:p-12 shadow-2xl relative">
             {/* Decorative emojis */}
-            <div className="absolute top-6 right-6 text-3xl">💖</div>
+            {/* <div className="absolute top-6 right-6 text-3xl">💖</div>
             <div className="absolute top-6 left-6 text-3xl">🌟</div>
             <div className="absolute bottom-6 right-6 text-3xl">🎨</div>
-            <div className="absolute bottom-6 left-6 text-3xl">✨</div>
+            <div className="absolute bottom-6 left-6 text-3xl">✨</div> */}
 
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Project Image */}
               <div className="relative">
                 <div className="relative bg-white rounded-3xl p-8 shadow-xl">
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/ee2a35dbe62aedaef43bfde930c6fe352d3eba2f?width=928"
-                    alt="Interactive Dashboard"
-                    className="w-full rounded-2xl shadow-lg"
-                  />
+                  <div className="w-full h-96 rounded-2xl bg-pink-500 shadow-lg flex items-center justify-center">
+                    image
+                  </div>
                   <div className="absolute -top-4 -right-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-xl">
                     🚀
                   </div>
@@ -327,7 +335,7 @@ export default function Index() {
               </div>
 
               {/* Project Details */}
-              <div className="space-y-8">
+              <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <span className="text-3xl">🎯</span>
                   <h3 className="text-3xl font-bold text-black">
@@ -335,7 +343,7 @@ export default function Index() {
                   </h3>
                 </div>
 
-                <div className="border-2 border-primary rounded-2xl p-8">
+                <div className="border-2 border-primary rounded-2xl p-6">
                   <p className="text-lg text-gray-700 leading-relaxed">
                     A modern analytics dashboard with smooth animations,
                     real-time data visualization, and responsive design. Built
@@ -372,8 +380,8 @@ export default function Index() {
             </div>
 
             {/* Navigation arrows */}
-            <div className="flex justify-between items-center mt-12">
-              <button className="w-15 h-15 border-2 border-primary rounded-full flex items-center justify-center shadow-lg hover:bg-primary/5 transition-colors">
+            <div className="flex justify-between items-center mt-6">
+              <button className="w-20 h-20 border-2 border-primary rounded-full flex items-center justify-center shadow-lg hover:bg-primary/5 transition-colors">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M15 19L8 12L15 5"
@@ -384,7 +392,7 @@ export default function Index() {
                   />
                 </svg>
               </button>
-              <button className="w-15 h-15 border-2 border-primary rounded-full flex items-center justify-center shadow-lg hover:bg-primary/5 transition-colors">
+              <button className="w-20 h-20 border-2 border-primary rounded-full flex items-center justify-center shadow-lg hover:bg-primary/5 transition-colors">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M9 5L16 12L9 19"
@@ -419,16 +427,18 @@ export default function Index() {
             <div className="space-y-4">
               <div className="flex items-center justify-center gap-4 relative">
                 <h2 className="text-5xl font-bold text-black">Let's Create</h2>
-                <div className="w-96 h-4 bg-primary/20 rounded-full opacity-20 absolute"></div>
-                <h2 className="text-5xl font-bold text-transparent">
-                  Something Magical
-                </h2>
+                <div className="relative">
+                  <div className="w-full -bottom-1 h-4 bg-primary/20 opacity-100 absolute"></div>
+                  <h2 className="text-5xl font-bold text-black">
+                    Something Magical
+                  </h2>
+                </div>
               </div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Ready to bring your ideas to life? I'd love to hear about your
                 project and discuss how we can create something{" "}
                 <span className="relative">
-                  <span className="absolute -bottom-1 left-0 w-52 h-3 bg-primary/30 rounded-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-52 h-3 bg-yellow-200 opacity-30"></span>
                   <span className="relative">extraordinary together</span>
                 </span>
                 <span className="ml-2">✨</span>
