@@ -81,7 +81,7 @@ export default function Index() {
               Specializing in front-end development with a passion for{" "}
               <span className="font-bold relative">
                 clean code
-                <span className="absolute -bottom-1 left-0 w-full h-2 bg-primary/25 rounded-full"></span>
+                <span className="absolute -bottom-1 left-0 w-full h-2 bg-primary/25"></span>
               </span>
               , intuitive design, and seamless user interactions that bring
               ideas to life.
