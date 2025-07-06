@@ -57,46 +57,48 @@ export default function Index() {
       <section className="pt-32 pb-20 px-6 relative">
         <div className="container mx-auto max-w-4xl text-center">
           <div className="space-y-6">
-            <h1 className="text-6xl font-bold text-black">Hi, I'm</h1>
-            <h2 className="text-6xl font-bold text-transparent stroke-text">
+            <h1 className="text-[60px] font-bold text-black leading-[75px]">
+              Hi, I'm
+            </h1>
+            <h2 className="text-[60px] font-bold text-primary leading-[75px]">
               Mingee Kim
             </h2>
-            <div className="text-xl text-gray-600 max-w-2xl mx-auto relative">
+            <div className="text-[20px] text-black max-w-2xl mx-auto relative leading-[28px] mt-8">
               but you can call me{" "}
               <span className="relative">
                 <span className="absolute -bottom-1 left-0 w-full h-3 bg-primary/30 rounded-full"></span>
                 <span className="relative font-medium">Jenna</span>
               </span>
             </div>
-            <div className="text-3xl text-black max-w-lg mx-auto leading-relaxed">
+            <div className="text-[30px] text-black max-w-lg mx-auto leading-[36px] mt-8">
               I craft{" "}
               <span className="relative font-semibold">
                 <span className="absolute -bottom-2 left-0 w-full h-4 bg-gray-100 rounded-full opacity-40"></span>
                 <span className="relative">beautiful digital experiences</span>
               </span>
             </div>
-            <div className="text-lg text-black max-w-2xl mx-auto leading-relaxed">
+            <div className="text-[18px] text-black max-w-2xl mx-auto leading-[29.25px] mt-8">
               Specializing in front-end development with a passion for{" "}
               <span className="font-bold">clean code</span>
               <span className="relative ml-1">
-                <span className="absolute -bottom-1 left-0 w-full h-2 bg-primary/25 rounded-full"></span>
+                <span className="absolute -bottom-1 left-0 w-24 h-2 bg-primary/25 rounded-full"></span>
               </span>
               , intuitive design, and seamless user interactions that bring
               ideas to life.
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
-              <button className="px-10 py-4 bg-primary text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-shadow">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-16">
+              <button className="w-[189px] h-[60px] bg-primary text-white rounded-full font-medium text-[16px] shadow-lg hover:shadow-xl transition-shadow">
                 View My Work
               </button>
-              <button className="px-10 py-4 border-2 border-primary text-primary rounded-full font-medium hover:bg-primary/5 transition-colors">
+              <button className="w-[189px] h-[60px] border-2 border-primary text-primary rounded-full font-medium text-[16px] hover:bg-primary/5 transition-colors">
                 Let's Connect
               </button>
             </div>
 
             {/* Social Links */}
-            <div className="flex justify-center items-center gap-8 mt-12">
+            <div className="flex justify-center items-center gap-8 mt-16">
               <a
                 href="#"
                 className="text-black hover:text-primary transition-colors"
