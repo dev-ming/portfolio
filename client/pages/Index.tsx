@@ -6,6 +6,7 @@ export default function Index() {
     email: "",
     projectDetails: "",
   });
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -36,9 +37,9 @@ export default function Index() {
       </div>
 
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-50 h-20">
-        <div className="container mx-auto px-6 h-full flex items-center justify-between">
-          <div className="text-2xl font-bold text-pink-500 hover:text-pink-600 transition-colors cursor-pointer" onClick={() => {
+      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-50 h-16 md:h-20">
+        <div className="container mx-auto px-4 md:px-6 h-full flex items-center justify-between">
+          <div className="text-xl md:text-2xl font-bold text-pink-500 hover:text-pink-600 transition-colors cursor-pointer" onClick={() => {
             const element = document.getElementById('hero');
             if (element) {
               const headerHeight = 40; // 헤더 높이 /2 
@@ -46,7 +47,7 @@ export default function Index() {
               window.scrollTo({ top: elementPosition, behavior: 'smooth' });
             }
           }}>Jenna</div>
-          <div className="flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6">
             <button 
               className="text-black hover:text-primary transition-colors"
               onClick={() => {
@@ -86,46 +87,101 @@ export default function Index() {
             >
               Contact
             </button>
-            {/* <button className="p-2">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M4 6H20M4 12H20M4 18H20"
-                  stroke="black"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button> */}
           </div>
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M4 6H20M4 12H20M4 18H20"
+                stroke="black"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
         </div>
+        
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200">
+            <div className="container mx-auto px-4 py-4">
+              <div className="flex flex-col space-y-4">
+                <button 
+                  className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    const element = document.getElementById('about');
+                    if (element) {
+                      const headerHeight = 64; // 모바일 헤더 높이
+                      const elementPosition = element.offsetTop - headerHeight;
+                      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  About
+                </button>
+                <button 
+                  className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    const element = document.getElementById('projects');
+                    if (element) {
+                      const headerHeight = 64; // 모바일 헤더 높이
+                      const elementPosition = element.offsetTop - headerHeight;
+                      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  Projects
+                </button>
+                <button 
+                  className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    const element = document.getElementById('contact');
+                    if (element) {
+                      const headerHeight = 64; // 모바일 헤더 높이
+                      const elementPosition = element.offsetTop - headerHeight;
+                      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  Contact
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="h-screen flex items-center justify-center px-6 relative">
+      <section id="hero" className="min-h-screen flex items-center justify-center px-4 md:px-6 relative pt-16 md:pt-0">
         <div className="container mx-auto max-w-4xl text-center">
-          <div className="space-y-6">
-            <h1 className="text-[60px] font-bold text-black leading-[75px]">
+          <div className="space-y-4 md:space-y-6">
+            <h1 className="text-4xl md:text-[60px] font-bold text-black leading-tight md:leading-[75px]">
               Hi, I'm
             </h1>
-            <h2 className="text-[60px] font-bold text-primary leading-[75px]">
+            <h2 className="text-4xl md:text-[60px] font-bold text-primary leading-tight md:leading-[75px]">
               Mingee Kim
             </h2>
-            <div className="text-[20px] text-black max-w-2xl mx-auto relative leading-[28px] mt-8">
+            <div className="text-base md:text-[20px] text-black max-w-2xl mx-auto relative leading-relaxed md:leading-[28px] mt-6 md:mt-8">
               but you can call me{" "}
               <span className="relative">
                 <span className="absolute -bottom-1 left-0 w-full h-3 bg-primary/30 opacity-40"></span>
                 <span className="relative font-medium">Jenna</span>
               </span>
             </div>
-            <div className="text-[30px] text-black max-w-lg mx-auto leading-[36px] mt-8">
+            <div className="text-xl md:text-[30px] text-black max-w-lg mx-auto leading-relaxed md:leading-[36px] mt-6 md:mt-8">
               I craft{" "}
               <span className="relative font-semibold">
-                {/* <span className="absolute -bottom-2 left-0 w-full h-4 bg-purple-200 opacity-40"></span> */}
                 <span className="relative">beautiful digital experiences</span>
               </span>
             </div>
-            <div className="text-[18px] text-black max-w-2xl mx-auto leading-[29.25px] mt-8">
+            <div className="text-sm md:text-[18px] text-black max-w-2xl mx-auto leading-relaxed md:leading-[29.25px] mt-6 md:mt-8 px-4">
               Specializing in front-end development with a passion for{" "}
               <span className="font-bold relative">
                 clean code
@@ -136,11 +192,11 @@ export default function Index() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-16">
-              <button className="w-[189px] h-[60px] bg-primary text-white rounded-full font-medium text-[16px] shadow-lg hover:shadow-xl transition-shadow">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12 md:mt-16">
+              <button className="w-full sm:w-[189px] h-[50px] md:h-[60px] bg-primary text-white rounded-full font-medium text-sm md:text-[16px] shadow-lg hover:shadow-xl transition-shadow">
                 View My Work
               </button>
-              <button className="w-[189px] h-[60px] border-2 border-primary text-primary rounded-full font-medium text-[16px] hover:bg-primary/5 transition-colors">
+              <button className="w-full sm:w-[189px] h-[50px] md:h-[60px] border-2 border-primary text-primary rounded-full font-medium text-sm md:text-[16px] hover:bg-primary/5 transition-colors">
                 Let's Connect
               </button>
             </div>
@@ -210,11 +266,11 @@ export default function Index() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6 relative">
+      <section id="about" className="py-12 md:py-20 px-4 md:px-6 relative">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-start">
             {/* Left: Card with two overlapping rectangles */}
-            <div className="relative">
+            <div className="relative order-2 lg:order-1">
               {/* Background blur effects */}
               <div className="absolute -top-8 -left-8 w-40 h-40 rounded-full bg-pink-200 opacity-30 blur-[24px]"></div>
               <div className="absolute bottom-8 -right-8 w-32 h-32 rounded-full bg-pink-300 opacity-40 blur-[20px]"></div>
@@ -232,7 +288,7 @@ export default function Index() {
 
                 {/* About Jenna text overlay */}
                 <div className="absolute bottom-8 left-8 right-8 z-10">
-                  <h3 className="text-[48px] font-bold text-gray-400 leading-[48px] opacity-60">
+                  <h3 className="text-2xl md:text-[48px] font-bold text-gray-400 leading-tight md:leading-[48px] opacity-60">
                     About Jenna
                   </h3>
                 </div>
@@ -240,21 +296,21 @@ export default function Index() {
             </div>
 
             {/* Right: About content */}
-            <div className="space-y-8 pt-8">
+            <div className="space-y-6 md:space-y-8 pt-0 md:pt-8 order-1 lg:order-2">
               <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <h2 className="text-[48px] font-bold text-black leading-[48px]">
+                <div className="flex items-center gap-2 md:gap-4">
+                  <h2 className="text-3xl md:text-[48px] font-bold text-black leading-tight md:leading-[48px]">
                     About
                   </h2>
-                  <h2 className="text-[48px] font-bold text-black leading-[48px] relative">
+                  <h2 className="text-3xl md:text-[48px] font-bold text-black leading-tight md:leading-[48px] relative whitespace-nowrap">
                     Me
-                    <div className="absolute -bottom-2 left-0 w-16 h-4 bg-primary/30 opacity-30"></div>
+                    <div className="absolute -bottom-1 left-0 w-full h-3 md:h-4 bg-primary/30 opacity-30"></div>
                   </h2>
                 </div>
-                <div className="w-16 h-1 bg-primary rounded-full"></div>
+                <div className="w-12 md:w-16 h-1 bg-primary rounded-full"></div>
               </div>
 
-              <div className="space-y-6 text-[18px] text-black leading-[29.25px] max-w-xl">
+              <div className="space-y-4 md:space-y-6 text-sm md:text-[18px] text-black leading-relaxed md:leading-[29.25px] max-w-xl">
                 <p>
                   I'm a passionate front-end developer who believes that{" "}
                   <span className="font-semibold relative whitespace-nowrap">
@@ -327,32 +383,26 @@ export default function Index() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-6 relative">
+      <section id="projects" className="py-12 md:py-20 px-4 md:px-6 relative">
         <div className="container mx-auto max-w-7xl">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="text-6xl mb-8">✨</div>
-            {/* <div className="flex items-center justify-center gap-2 mb-4">
-              <div className="w-3 h-3 rounded-full bg-primary"></div>
-              <div className="w-20 h-1 bg-gradient-to-r from-primary-700 to-primary rounded-full"></div>
-              <div className="w-3 h-3 rounded-full bg-primary"></div>
-            </div> */}
+          <div className="text-center mb-12 md:mb-16">
+            <div className="text-4xl md:text-6xl mb-6 md:mb-8">✨</div>
             <div className="space-y-4">
-              <div className="flex items-center justify-center gap-4">
-                <h2 className="text-5xl font-bold text-black">My</h2>
+              <div className="flex items-center justify-center gap-2 md:gap-4">
+                <h2 className="text-3xl md:text-5xl font-bold text-black">My</h2>
                 <div className="relative">
-                  <div className="w-48 h-4 bg-primary/20 absolute -bottom-1"></div>
-                  <h2 className="text-5xl font-bold text-black">Projects</h2>
+                  <div className="w-full h-3 md:h-4 bg-primary/20 absolute -bottom-1"></div>
+                  <h2 className="text-3xl md:text-5xl font-bold text-black">Projects</h2>
                 </div>
-                <div className="text-5xl font-bold text-transparent absolute">
+                <div className="text-3xl md:text-5xl font-bold text-transparent absolute">
                   Favorite
                 </div>
               </div>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
                 Here are some projects that make my heart happy! Each one is
                 crafted{" "}
-                <br />
-                <span className="relative">
+                <span className="relative whitespace-nowrap">
                   <span className="absolute -bottom-1 left-0 w-full h-3 bg-yellow-200 opacity-30"></span>
                   <span className="relative font-medium">with love, creativity</span>
                 </span>{" "}
@@ -362,66 +412,60 @@ export default function Index() {
           </div>
 
           {/* Featured Project */}
-          <div className="bg-pink-50/50 rounded-3xl p-8 lg:p-12 shadow-2xl relative">
-            {/* Decorative emojis */}
-            {/* <div className="absolute top-6 right-6 text-3xl">💖</div>
-            <div className="absolute top-6 left-6 text-3xl">🌟</div>
-            <div className="absolute bottom-6 right-6 text-3xl">🎨</div>
-            <div className="absolute bottom-6 left-6 text-3xl">✨</div> */}
-
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="bg-pink-50/50 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 shadow-2xl relative">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-12 items-center">
               {/* Project Image */}
-              <div className="relative">
-                <div className="relative bg-white rounded-3xl p-8 shadow-xl">
-                  <div className="w-full h-96 rounded-2xl bg-pink-500 shadow-lg flex items-center justify-center">
+              <div className="relative mb-6 md:mb-0">
+                <div className="relative bg-white rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-xl">
+                  <div className="w-full h-48 md:h-96 rounded-xl md:rounded-2xl bg-pink-500 shadow-lg flex items-center justify-center">
                     image
                   </div>
-                  <div className="absolute -top-4 -right-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-xl">
+                  <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-8 h-8 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-lg md:text-xl">
                     🚀
                   </div>
                 </div>
               </div>
 
               {/* Project Details */}
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <span className="text-3xl">🎯</span>
-                  <h3 className="text-3xl font-bold text-black">
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex items-center gap-2 md:gap-4">
+                  <span className="text-xl md:text-3xl">🎯</span>
+                  <h3 className="text-xl md:text-3xl font-bold text-black">
                     Interactive Dashboard
                   </h3>
                 </div>
 
-                <div className="border-2 border-primary rounded-2xl p-6">
-                  <p className="text-lg text-gray-700 leading-relaxed">
+                <div className="border-2 border-primary rounded-xl md:rounded-2xl p-4 md:p-6">
+                  <p className="text-base md:text-lg text-gray-700 leading-relaxed">
                     A modern analytics dashboard with smooth animations,
                     real-time data visualization, and responsive design. Built
                     with React and D3.js for seamless user experience.
                   </p>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <span className="text-2xl">🛠️</span>
-                    <h4 className="text-lg font-semibold text-black">
+                <div className="space-y-2 md:space-y-4">
+                  <div className="flex items-center gap-2 md:gap-4">
+                    <span className="text-lg md:text-2xl">🛠️</span>
+                    <h4 className="text-base md:text-lg font-semibold text-black">
                       Tech Stack
                     </h4>
                   </div>
-                  <div className="flex gap-4">
-                    <span className="px-6 py-2 bg-primary text-white rounded-full text-lg shadow-md">
+                  <div className="flex gap-2 md:gap-4 flex-wrap">
+                    <span className="px-4 md:px-6 py-1.5 md:py-2 bg-primary text-white rounded-full text-base md:text-lg shadow-md">
                       React
                     </span>
-                    <span className="px-6 py-2 bg-primary text-white rounded-full text-lg shadow-md">
+                    <span className="px-4 md:px-6 py-1.5 md:py-2 bg-primary text-white rounded-full text-base md:text-lg shadow-md">
                       Next.js
                     </span>
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="flex-1 bg-gradient-to-r from-primary-700 to-primary text-white px-8 py-4 rounded-full font-medium shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center gap-2">
-                    View Live Site <span className="text-xl">🌐</span>
+                <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                  <button className="flex-1 bg-gradient-to-r from-primary-700 to-primary text-white px-4 md:px-8 py-3 md:py-4 rounded-full font-medium shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center gap-2 text-base md:text-lg">
+                    View Live Site <span className="text-lg md:text-xl">🌐</span>
                   </button>
-                  <button className="flex-1 border-2 border-primary text-primary px-8 py-4 rounded-full font-medium hover:bg-primary/5 transition-colors flex items-center justify-center gap-2">
-                    View Code <span className="text-xl">💻</span>
+                  <button className="flex-1 border-2 border-primary text-primary px-4 md:px-8 py-3 md:py-4 rounded-full font-medium hover:bg-primary/5 transition-colors flex items-center justify-center gap-2 text-base md:text-lg">
+                    View Code <span className="text-lg md:text-xl">💻</span>
                   </button>
                 </div>
               </div>
@@ -429,7 +473,7 @@ export default function Index() {
 
             {/* Navigation arrows */}
             <div className="flex justify-between items-center mt-6">
-              <button className="w-20 h-20 border-2 border-primary rounded-full flex items-center justify-center shadow-lg hover:bg-primary/5 transition-colors">
+              <button className="w-12 md:w-20 h-12 md:h-20 border-2 border-primary rounded-full flex items-center justify-center shadow-lg hover:bg-primary/5 transition-colors">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M15 19L8 12L15 5"
@@ -440,7 +484,7 @@ export default function Index() {
                   />
                 </svg>
               </button>
-              <button className="w-20 h-20 border-2 border-primary rounded-full flex items-center justify-center shadow-lg hover:bg-primary/5 transition-colors">
+              <button className="w-12 md:w-20 h-12 md:h-20 border-2 border-primary rounded-full flex items-center justify-center shadow-lg hover:bg-primary/5 transition-colors">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M9 5L16 12L9 19"
@@ -455,51 +499,52 @@ export default function Index() {
           </div>
 
           {/* CTA Banner */}
-          <div className="text-center mt-16">
-            <div className="inline-flex items-center gap-4 bg-white border-2 border-black rounded-full px-10 py-4 shadow-lg">
-              <span className="text-2xl">🎉</span>
-              <span className="text-lg font-medium">
+          <div className="text-center mt-12 md:mt-16">
+            <button className="hover:bg-gray-100 transition-colors inline-flex flex-wrap items-center gap-2 md:gap-4 bg-white border-2 border-black rounded-full px-6 md:px-10 py-3 md:py-4 shadow-lg text-base md:text-lg">
+              <span className="text-base md:text-2xl">🎉</span>
+              <span className="font-medium md:text-base text-sm">
                 Want to see more? Let's chat!
               </span>
-              <span className="text-2xl">💬</span>
-            </div>
+              <span className="text-base md:text-2xl">💬</span>
+            </button>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 relative">
+      <section id="contact" className="py-12 md:py-20 px-4 md:px-6 relative">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16">
-            <div className="text-6xl mb-8">💌</div>
+          <div className="text-center mb-12 md:mb-16">
+            <div className="text-4xl md:text-6xl mb-6 md:mb-8">💌</div>
             <div className="space-y-4">
-              <div className="flex items-center justify-center gap-4 relative">
-                <h2 className="text-5xl font-bold text-black">Let's Create</h2>
-                <div className="relative">
-                  <div className="w-full -bottom-1 h-4 bg-primary/20 opacity-100 absolute"></div>
-                  <h2 className="text-5xl font-bold text-black">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 relative">
+                <h2 className="text-3xl md:text-5xl font-bold text-black">Let's Create</h2>
+                <div className="relative w-auto">
+                  <div className="w-full -bottom-1 h-3 md:h-4 bg-primary/20 opacity-100 absolute"></div>
+                  <h2 className="text-3xl md:text-5xl font-bold text-black">
                     Something Magical
                   </h2>
                 </div>
               </div>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
                 Ready to bring your ideas to life? I'd love to hear about your
-                project and discuss how we can create something{" "}
-                <span className="relative">
-                  <span className="absolute -bottom-1 left-0 w-52 h-3 bg-yellow-200 opacity-30"></span>
+                project and discuss how we can create something {" "}
+                <span className="relative whitespace-nowrap">
+                  <span className="absolute -bottom-1 left-0 w-full h-3 bg-yellow-200 opacity-30"></span>
                   <span className="relative">extraordinary together</span>
                 </span>
+                {" "}
                 <span className="ml-2">✨</span>
               </p>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12">
-            <form onSubmit={handleSubmit} className="space-y-8">
-              <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-8 lg:p-12">
+            <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                 <div className="space-y-2">
-                  <label className="text-gray-700 font-medium">
+                  <label className="text-gray-700 font-medium text-sm md:text-base">
                     Your Name <span className="text-primary">*</span>
                   </label>
                   <input
@@ -508,12 +553,12 @@ export default function Index() {
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder="Enter your full name"
-                    className="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:border-primary focus:outline-none transition-colors"
+                    className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl md:rounded-2xl focus:border-primary focus:outline-none transition-colors text-sm md:text-base"
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-gray-700 font-medium">
+                  <label className="text-gray-700 font-medium text-sm md:text-base">
                     Email Address <span className="text-primary">*</span>
                   </label>
                   <input
@@ -522,13 +567,13 @@ export default function Index() {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="your.email@example.com"
-                    className="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:border-primary focus:outline-none transition-colors"
+                    className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl md:rounded-2xl focus:border-primary focus:outline-none transition-colors text-sm md:text-base"
                     required
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-gray-700 font-medium">
+                <label className="text-gray-700 font-medium text-sm md:text-base">
                   Project Details <span className="text-primary">*</span>
                 </label>
                 <textarea
@@ -536,15 +581,15 @@ export default function Index() {
                   value={formData.projectDetails}
                   onChange={handleInputChange}
                   placeholder="Tell me about your project..."
-                  rows={6}
-                  className="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:border-primary focus:outline-none transition-colors resize-none"
+                  rows={5}
+                  className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl md:rounded-2xl focus:border-primary focus:outline-none transition-colors resize-none text-sm md:text-base"
                   required
                 ></textarea>
               </div>
               <div className="text-center">
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-primary-700 to-primary text-white px-12 py-4 rounded-full text-lg font-medium shadow-lg hover:shadow-xl transition-shadow"
+                  className="w-full md:w-auto bg-gradient-to-r from-primary-700 to-primary text-white px-6 md:px-12 py-3 md:py-4 rounded-full text-base md:text-lg font-medium shadow-lg hover:shadow-xl transition-shadow"
                 >
                   Send Message ✨
                 </button>
