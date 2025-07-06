@@ -48,12 +48,12 @@ export default function Index() {
             }
           }}>
             <div className="flex items-center gap-2">
-              <img src="/public/cat.png" alt="Jenna" className="w-12 h-12" />
+              <img src="/cat.png" alt="Jenna" className="w-12 h-12" />
               {/* <span className="text-primary">Jenna</span> */}
             </div>
           </div>
           <div className="hidden md:flex items-center gap-6">
-            <button 
+            <button
               className="text-black hover:text-primary transition-colors"
               onClick={() => {
                 const element = document.getElementById('about');
@@ -66,7 +66,7 @@ export default function Index() {
             >
               About
             </button>
-            <button 
+            <button
               className="text-black hover:text-primary transition-colors"
               onClick={() => {
                 const element = document.getElementById('projects');
@@ -79,7 +79,7 @@ export default function Index() {
             >
               Projects
             </button>
-            <button 
+            <button
               className="text-black hover:text-primary transition-colors"
               onClick={() => {
                 const element = document.getElementById('contact');
@@ -94,7 +94,7 @@ export default function Index() {
             </button>
           </div>
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -109,13 +109,13 @@ export default function Index() {
             </svg>
           </button>
         </div>
-        
+
         {/* Mobile Menu Dropdown */}
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200">
             <div className="container mx-auto px-4 py-4">
               <div className="flex flex-col space-y-4">
-                <button 
+                <button
                   className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
@@ -129,7 +129,7 @@ export default function Index() {
                 >
                   About
                 </button>
-                <button 
+                <button
                   className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
@@ -143,7 +143,7 @@ export default function Index() {
                 >
                   Projects
                 </button>
-                <button 
+                <button
                   className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
