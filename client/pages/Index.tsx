@@ -54,7 +54,7 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 relative">
+      <section className="h-screen flex items-center justify-center px-6 relative">
         <div className="container mx-auto max-w-4xl text-center">
           <div className="space-y-6">
             <h1 className="text-[60px] font-bold text-black leading-[75px]">
