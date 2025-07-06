@@ -165,53 +165,19 @@ export default function Index() {
       <section className="py-20 px-6 relative">
         <div className="container mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left: Image with overlay text */}
+            {/* Left: Image only */}
             <div className="relative">
               {/* Background blur effects */}
               <div className="absolute -top-8 -left-8 w-40 h-40 rounded-full bg-pink-200 opacity-30 blur-[24px]"></div>
-              <div className="absolute bottom-32 -right-8 w-32 h-32 rounded-full bg-pink-300 opacity-40 blur-[20px]"></div>
+              <div className="absolute bottom-8 -right-8 w-32 h-32 rounded-full bg-pink-300 opacity-40 blur-[20px]"></div>
 
               {/* Main image */}
-              <div className="relative mb-8">
+              <div className="relative">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/015358185d8f770563590403b8e82ee12511a3f8?width=1082"
                   alt="Jenna Kim"
                   className="w-full rounded-3xl shadow-2xl"
                 />
-              </div>
-
-              {/* Stats Cards - positioned below image */}
-              <div className="grid grid-cols-3 gap-4 max-w-md">
-                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
-                  <div className="text-[30px] font-bold text-primary leading-[36px]">
-                    3+
-                  </div>
-                  <div className="text-[16px] text-black mt-2 leading-[24px]">
-                    Years
-                    <br />
-                    Experience
-                  </div>
-                </div>
-                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
-                  <div className="text-[30px] font-bold text-primary leading-[36px]">
-                    25+
-                  </div>
-                  <div className="text-[16px] text-black mt-2 leading-[24px]">
-                    Projects
-                    <br />
-                    Completed
-                  </div>
-                </div>
-                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
-                  <div className="text-[30px] font-bold text-primary leading-[36px]">
-                    100%
-                  </div>
-                  <div className="text-[16px] text-black mt-2 leading-[24px]">
-                    Client
-                    <br />
-                    Satisfaction
-                  </div>
-                </div>
               </div>
             </div>
 
