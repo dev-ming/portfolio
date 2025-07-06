@@ -38,23 +38,71 @@ export default function Index() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-50 h-20">
         <div className="container mx-auto px-6 h-full flex items-center justify-between">
-          <div className="text-2xl font-bold text-pink-500 hover:text-pink-600 transition-colors">Jenna</div>
-          <button className="p-2">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M4 6H20M4 12H20M4 18H20"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+          <div className="text-2xl font-bold text-pink-500 hover:text-pink-600 transition-colors cursor-pointer" onClick={() => {
+            const element = document.getElementById('hero');
+            if (element) {
+              const headerHeight = 40; // 헤더 높이 /2 
+              const elementPosition = element.offsetTop - headerHeight;
+              window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+            }
+          }}>Jenna</div>
+          <div className="flex items-center gap-6">
+            <button 
+              className="text-black hover:text-primary transition-colors"
+              onClick={() => {
+                const element = document.getElementById('about');
+                if (element) {
+                  const headerHeight = 40; // 헤더 높이 /2 
+                  const elementPosition = element.offsetTop - headerHeight;
+                  window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                }
+              }}
+            >
+              About
+            </button>
+            <button 
+              className="text-black hover:text-primary transition-colors"
+              onClick={() => {
+                const element = document.getElementById('projects');
+                if (element) {
+                  const headerHeight = 40; // 헤더 높이 /2 
+                  const elementPosition = element.offsetTop - headerHeight;
+                  window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                }
+              }}
+            >
+              Projects
+            </button>
+            <button 
+              className="text-black hover:text-primary transition-colors"
+              onClick={() => {
+                const element = document.getElementById('contact');
+                if (element) {
+                  const headerHeight = 40; // 헤더 높이 /2 
+                  const elementPosition = element.offsetTop - headerHeight;
+                  window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                }
+              }}
+            >
+              Contact
+            </button>
+            {/* <button className="p-2">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M4 6H20M4 12H20M4 18H20"
+                  stroke="black"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button> */}
+          </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="h-screen flex items-center justify-center px-6 relative">
+      <section id="hero" className="h-screen flex items-center justify-center px-6 relative">
         <div className="container mx-auto max-w-4xl text-center">
           <div className="space-y-6">
             <h1 className="text-[60px] font-bold text-black leading-[75px]">
@@ -162,7 +210,7 @@ export default function Index() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-6 relative">
+      <section id="about" className="py-20 px-6 relative">
         <div className="container mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left: Card with two overlapping rectangles */}
@@ -279,7 +327,7 @@ export default function Index() {
       </section>
 
       {/* Projects Section */}
-      <section className="py-20 px-6 relative">
+      <section id="projects" className="py-20 px-6 relative">
         <div className="container mx-auto max-w-7xl">
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -420,7 +468,7 @@ export default function Index() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-6 relative">
+      <section id="contact" className="py-20 px-6 relative">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-16">
             <div className="text-6xl mb-8">💌</div>
