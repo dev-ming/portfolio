@@ -164,38 +164,27 @@ export default function Index() {
       {/* About Section */}
       <section className="py-20 px-6 relative">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left: Image and decorative elements */}
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Left: Image with overlay text */}
             <div className="relative">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-primary/10 rounded-3xl transform rotate-1 opacity-10"></div>
-                <div className="absolute -top-4 -left-4 w-32 h-32 rounded-full bg-red-200 opacity-20 blur-[12px]"></div>
-                <div className="absolute -bottom-8 -right-8 w-24 h-24 rounded-full bg-primary opacity-20 blur-[12px]"></div>
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/015358185d8f770563590403b8e82ee12511a3f8?width=1082"
-                  alt="Jenna Kim"
-                  className="relative w-full max-w-lg mx-auto rounded-3xl shadow-2xl transform rotate-1"
-                />
-              </div>
+                {/* Background blur effects */}
+                <div className="absolute -top-8 -left-8 w-40 h-40 rounded-full bg-pink-200 opacity-30 blur-[24px]"></div>
+                <div className="absolute -bottom-12 -right-12 w-32 h-32 rounded-full bg-pink-300 opacity-40 blur-[20px]"></div>
 
-              {/* Stats Cards */}
-              <div className="grid grid-cols-3 gap-4 mt-8">
-                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
-                  <div className="text-3xl font-bold text-primary">3+</div>
-                  <div className="text-sm text-gray-600 mt-1">
-                    Years Experience
-                  </div>
-                </div>
-                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
-                  <div className="text-3xl font-bold text-primary">25+</div>
-                  <div className="text-sm text-gray-600 mt-1">
-                    Projects Completed
-                  </div>
-                </div>
-                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
-                  <div className="text-3xl font-bold text-primary">100%</div>
-                  <div className="text-sm text-gray-600 mt-1">
-                    Client Satisfaction
+                {/* Main image container */}
+                <div className="relative bg-white rounded-3xl p-8 shadow-2xl">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/015358185d8f770563590403b8e82ee12511a3f8?width=1082"
+                    alt="Jenna Kim"
+                    className="w-full rounded-2xl shadow-lg"
+                  />
+
+                  {/* About Jenna overlay text */}
+                  <div className="absolute bottom-16 left-8">
+                    <h3 className="text-[48px] font-bold text-gray-400 leading-[48px]">
+                      About Jenna
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -205,14 +194,18 @@ export default function Index() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
-                  <h2 className="text-5xl font-bold text-black">About</h2>
-                  <div className="flex-1 h-4 bg-primary/30 rounded-full opacity-30 mt-2"></div>
-                  <h2 className="text-5xl font-bold text-black">Me</h2>
+                  <h2 className="text-[48px] font-bold text-black leading-[48px]">
+                    About
+                  </h2>
+                  <div className="w-16 h-4 bg-primary/30 rounded-full opacity-30"></div>
+                  <h2 className="text-[48px] font-bold text-black leading-[48px]">
+                    Me
+                  </h2>
                 </div>
                 <div className="w-16 h-1 bg-primary rounded-full"></div>
               </div>
 
-              <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+              <div className="space-y-6 text-[18px] text-black leading-[29.25px]">
                 <p>
                   I'm a passionate front-end developer who believes that{" "}
                   <span className="font-semibold">
@@ -237,6 +230,40 @@ export default function Index() {
                   <span className="font-semibold">life and personality</span> to
                   the web.
                 </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
+              <div className="text-[30px] font-bold text-primary leading-[36px]">
+                3+
+              </div>
+              <div className="text-[16px] text-black mt-2 leading-[24px]">
+                Years
+                <br />
+                Experience
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
+              <div className="text-[30px] font-bold text-primary leading-[36px]">
+                25+
+              </div>
+              <div className="text-[16px] text-black mt-2 leading-[24px]">
+                Projects
+                <br />
+                Completed
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
+              <div className="text-[30px] font-bold text-primary leading-[36px]">
+                100%
+              </div>
+              <div className="text-[16px] text-black mt-2 leading-[24px]">
+                Client
+                <br />
+                Satisfaction
               </div>
             </div>
           </div>
