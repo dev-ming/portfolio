@@ -165,14 +165,14 @@ export default function Index() {
       <section className="py-20 px-6 relative">
         <div className="container mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left: Image with overlay text and stats */}
+            {/* Left: Image with overlay text */}
             <div className="relative">
               {/* Background blur effects */}
               <div className="absolute -top-8 -left-8 w-40 h-40 rounded-full bg-pink-200 opacity-30 blur-[24px]"></div>
-              <div className="absolute bottom-20 -right-8 w-32 h-32 rounded-full bg-pink-300 opacity-40 blur-[20px]"></div>
+              <div className="absolute bottom-32 -right-8 w-32 h-32 rounded-full bg-pink-300 opacity-40 blur-[20px]"></div>
 
               {/* Main image */}
-              <div className="relative">
+              <div className="relative mb-8">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/015358185d8f770563590403b8e82ee12511a3f8?width=1082"
                   alt="Jenna Kim"
@@ -187,9 +187,9 @@ export default function Index() {
                 </div>
               </div>
 
-              {/* Stats Cards - positioned at bottom right */}
-              <div className="absolute -bottom-6 -right-4 grid grid-cols-3 gap-4">
-                <div className="bg-white rounded-2xl p-6 shadow-lg text-center min-w-[120px]">
+              {/* Stats Cards - positioned below image */}
+              <div className="grid grid-cols-3 gap-4 max-w-md">
+                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
                   <div className="text-[30px] font-bold text-primary leading-[36px]">
                     3+
                   </div>
@@ -199,7 +199,7 @@ export default function Index() {
                     Experience
                   </div>
                 </div>
-                <div className="bg-white rounded-2xl p-6 shadow-lg text-center min-w-[120px]">
+                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
                   <div className="text-[30px] font-bold text-primary leading-[36px]">
                     25+
                   </div>
@@ -209,7 +209,7 @@ export default function Index() {
                     Completed
                   </div>
                 </div>
-                <div className="bg-white rounded-2xl p-6 shadow-lg text-center min-w-[120px]">
+                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
                   <div className="text-[30px] font-bold text-primary leading-[36px]">
                     100%
                   </div>
