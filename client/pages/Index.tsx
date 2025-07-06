@@ -229,9 +229,9 @@ export default function Index() {
                   <h2 className="text-[48px] font-bold text-black leading-[48px]">
                     About
                   </h2>
-                  <div className="w-16 h-4 bg-primary/30 rounded-full opacity-30"></div>
-                  <h2 className="text-[48px] font-bold text-black leading-[48px]">
+                  <h2 className="text-[48px] font-bold text-black leading-[48px] relative">
                     Me
+                    <div className="absolute -bottom-2 left-0 w-16 h-4 bg-primary/30 rounded-full opacity-30"></div>
                   </h2>
                 </div>
                 <div className="w-16 h-1 bg-primary rounded-full"></div>
