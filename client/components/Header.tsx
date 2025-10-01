@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useTranslation();
+  const location = useLocation();
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-50 h-16 md:h-20">
@@ -18,25 +20,31 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-6">
           <a
             href="/"
-            className="text-black hover:text-primary transition-colors"
-          >
-            {t('navigation.home')}
-          </a>
-          <a
-            href="/about"
-            className="text-black hover:text-primary transition-colors"
-          >
-            {t('navigation.about')}
-          </a>
-          <a
-            href="/#projects"
-            className="text-black hover:text-primary transition-colors"
+            className={`transition-colors ${
+              location.pathname === '/' 
+                ? 'text-primary font-bold' 
+                : 'text-gray-800 hover:text-primary'
+            }`}
           >
             {t('navigation.projects')}
           </a>
           <a
+            href="/about"
+            className={`transition-colors ${
+              location.pathname === '/about' 
+                ? 'text-primary font-bold' 
+                : 'text-gray-800 hover:text-primary'
+            }`}
+          >
+            {t('navigation.about')}
+          </a>
+          <a
             href="/contact"
-            className="text-black hover:text-primary transition-colors"
+            className={`transition-colors ${
+              location.pathname === '/contact' 
+                ? 'text-primary font-bold' 
+                : 'text-gray-800 hover:text-primary'
+            }`}
           >
             {t('navigation.contact')}
           </a>
@@ -49,7 +57,7 @@ export default function Header() {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path
               d="M4 6H20M4 12H20M4 18H20"
-              stroke="black"
+              stroke="gray-800"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -65,28 +73,33 @@ export default function Header() {
             <div className="flex flex-col space-y-4">
               <a
                 href="/"
-                className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t('navigation.home')}
-              </a>
-              <a
-                href="/about"
-                className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t('navigation.about')}
-              </a>
-              <a
-                href="/#projects"
-                className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
+                className={`text-left transition-colors py-2 text-lg font-medium ${
+                  location.pathname === '/' 
+                    ? 'text-primary font-bold' 
+                    : 'text-gray-800 hover:text-primary'
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t('navigation.projects')}
               </a>
               <a
+                href="/about"
+                className={`text-left transition-colors py-2 text-lg font-medium ${
+                  location.pathname === '/about' 
+                    ? 'text-primary font-bold' 
+                    : 'text-gray-800 hover:text-primary'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('navigation.about')}
+              </a>
+              <a
                 href="/contact"
-                className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
+                className={`text-left transition-colors py-2 text-lg font-medium ${
+                  location.pathname === '/contact' 
+                    ? 'text-primary font-bold' 
+                    : 'text-gray-800 hover:text-primary'
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t('navigation.contact')}
