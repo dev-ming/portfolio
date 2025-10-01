@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 
 ## 🚀 Live Demo
 
-[View Live Portfolio](https://your-portfolio-url.netlify.app)
+[View Live Portfolio](https://jennaportfolio.netlify.app/)
 
 ## ✨ Features
 
