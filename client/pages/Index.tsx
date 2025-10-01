@@ -1,28 +1,15 @@
+import { Mail, Github, Linkedin } from "lucide-react";
 import { useState } from "react";
+import Header from "@/components/Header";
 
 export default function Index() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    projectDetails: "",
-  });
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  const socialLinks = [
+    { icon: Github, href: "https://github.com/dev-ming", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/%EB%AF%BC%EC%A7%80-%EA%B9%80-8b606125a/", label: "LinkedIn" },
+    { icon: Mail, href: "mailto:ruaaa1307@gmail.com", label: "Email" },
+];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-  };
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
@@ -36,132 +23,7 @@ export default function Index() {
         <div className="absolute w-80 h-80 rounded-full bg-blur-purple opacity-40 blur-[32px] left-0 top-[3250px] mix-blend-multiply"></div>
       </div>
 
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-50 h-16 md:h-20">
-        <div className="container mx-auto px-4 md:px-6 h-full flex items-center justify-between">
-          <div className="text-xl md:text-2xl font-bold text-pink-500 hover:text-pink-600 transition-colors cursor-pointer" onClick={() => {
-            const element = document.getElementById('hero');
-            if (element) {
-              const headerHeight = 40; // 헤더 높이 /2 
-              const elementPosition = element.offsetTop - headerHeight;
-              window.scrollTo({ top: elementPosition, behavior: 'smooth' });
-            }
-          }}>
-            <div className="flex items-center gap-2">
-              <img src="/cat.png" alt="Jenna" className="w-12 h-12" />
-              {/* <span className="text-primary">Jenna</span> */}
-            </div>
-          </div>
-          <div className="hidden md:flex items-center gap-6">
-            <button
-              className="text-black hover:text-primary transition-colors"
-              onClick={() => {
-                const element = document.getElementById('about');
-                if (element) {
-                  const headerHeight = 40; // 헤더 높이 /2 
-                  const elementPosition = element.offsetTop - headerHeight;
-                  window.scrollTo({ top: elementPosition, behavior: 'smooth' });
-                }
-              }}
-            >
-              About
-            </button>
-            <button
-              className="text-black hover:text-primary transition-colors"
-              onClick={() => {
-                const element = document.getElementById('projects');
-                if (element) {
-                  const headerHeight = 40; // 헤더 높이 /2 
-                  const elementPosition = element.offsetTop - headerHeight;
-                  window.scrollTo({ top: elementPosition, behavior: 'smooth' });
-                }
-              }}
-            >
-              Projects
-            </button>
-            <button
-              className="text-black hover:text-primary transition-colors"
-              onClick={() => {
-                const element = document.getElementById('contact');
-                if (element) {
-                  const headerHeight = 40; // 헤더 높이 /2 
-                  const elementPosition = element.offsetTop - headerHeight;
-                  window.scrollTo({ top: elementPosition, behavior: 'smooth' });
-                }
-              }}
-            >
-              Contact
-            </button>
-          </div>
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M4 6H20M4 12H20M4 18H20"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Menu Dropdown */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200">
-            <div className="container mx-auto px-4 py-4">
-              <div className="flex flex-col space-y-4">
-                <button
-                  className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    const element = document.getElementById('about');
-                    if (element) {
-                      const headerHeight = 64; // 모바일 헤더 높이
-                      const elementPosition = element.offsetTop - headerHeight;
-                      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
-                    }
-                  }}
-                >
-                  About
-                </button>
-                <button
-                  className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    const element = document.getElementById('projects');
-                    if (element) {
-                      const headerHeight = 64; // 모바일 헤더 높이
-                      const elementPosition = element.offsetTop - headerHeight;
-                      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
-                    }
-                  }}
-                >
-                  Projects
-                </button>
-                <button
-                  className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    const element = document.getElementById('contact');
-                    if (element) {
-                      const headerHeight = 64; // 모바일 헤더 높이
-                      const elementPosition = element.offsetTop - headerHeight;
-                      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
-                    }
-                  }}
-                >
-                  Contact
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section id="hero" className="min-h-screen flex items-center justify-center px-4 md:px-6 relative pt-16 md:pt-0">
@@ -198,7 +60,17 @@ export default function Index() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12 md:mt-16">
-              <button className="w-full sm:w-[189px] h-[50px] md:h-[60px] bg-primary text-white rounded-full font-medium text-sm md:text-[16px] shadow-lg hover:shadow-xl transition-shadow">
+              <button 
+              className="w-full sm:w-[189px] h-[50px] md:h-[60px] bg-primary text-white rounded-full font-medium text-sm md:text-[16px] shadow-lg hover:shadow-xl transition-shadow"
+              onClick={() => {
+                const element = document.getElementById('projects');
+                if (element) {
+                  const headerHeight = 40; // 헤더 높이 /2 
+                  const elementPosition = element.offsetTop - headerHeight;
+                  window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                }
+              }}
+              >
                 View My Work
               </button>
               <button className="w-full sm:w-[189px] h-[50px] md:h-[60px] border-2 border-primary text-primary rounded-full font-medium text-sm md:text-[16px] hover:bg-primary/5 transition-colors">
@@ -207,185 +79,17 @@ export default function Index() {
             </div>
 
             {/* Social Links */}
-            <div className="flex justify-center items-center gap-8 mt-16">
-              <a
-                href="#"
-                className="text-black hover:text-primary transition-colors"
-              >
-                <svg width="28" height="28" viewBox="0 0 28 29" fill="none">
-                  <g clipPath="url(#clip0_linkedin)">
-                    <path
-                      d="M23.8548 24.6617H19.7085V18.1645C19.7085 16.6152 19.677 14.6214 17.5478 14.6214C15.386 14.6214 15.0558 16.3072 15.0558 18.0502V24.6617H10.9095V11.301H14.8925V13.1222H14.9462C15.5027 12.0722 16.856 10.9639 18.8778 10.9639C23.079 10.9639 23.856 13.7289 23.856 17.328L23.8548 24.6617ZM6.2265 9.47286C4.89183 9.47286 3.81967 8.39253 3.81967 7.06369C3.81967 5.73603 4.893 4.65686 6.2265 4.65686C7.5565 4.65686 8.6345 5.73603 8.6345 7.06369C8.6345 8.39253 7.55533 9.47286 6.2265 9.47286ZM8.3055 24.6617H4.1475V11.301H8.3055V24.6617ZM25.9292 0.801025H2.06617C0.924 0.801025 0 1.70403 0 2.81819V26.7839C0 27.8992 0.924 28.801 2.06617 28.801H25.9257C27.0667 28.801 28 27.8992 28 26.7839V2.81819C28 1.70403 27.0667 0.801025 25.9257 0.801025H25.9292Z"
-                      fill="currentColor"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_linkedin">
-                      <rect
-                        width="28"
-                        height="28"
-                        fill="white"
-                        transform="translate(0 0.801025)"
-                      />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="text-black hover:text-primary transition-colors"
-              >
-                <svg width="28" height="28" viewBox="0 0 28 29" fill="none">
-                  <g clipPath="url(#clip0_github)">
-                    <path
-                      d="M14 0.801025C6.26967 0.801025 0 7.06953 0 14.801C0 20.9867 4.011 26.2344 9.57483 28.0859C10.2737 28.2154 10.5 27.7814 10.5 27.4127V24.8064C6.60567 25.6534 5.79483 23.1544 5.79483 23.1544C5.15783 21.5362 4.23967 21.1057 4.23967 21.1057C2.96917 20.2365 4.3365 20.2552 4.3365 20.2552C5.74233 20.3532 6.482 21.6984 6.482 21.6984C7.73033 23.838 9.75683 23.2197 10.556 22.8615C10.6808 21.9574 11.0437 21.339 11.445 20.9902C8.33583 20.6344 5.06683 19.4339 5.06683 14.0707C5.06683 12.5412 5.614 11.2929 6.50883 10.3129C6.36417 9.95936 5.88467 8.53486 6.64533 6.60753C6.64533 6.60753 7.82133 6.23186 10.4965 8.04253C11.613 7.73219 12.81 7.57703 14 7.57119C15.19 7.57703 16.3882 7.73219 17.507 8.04253C20.1798 6.23186 21.3535 6.60753 21.3535 6.60753C22.1153 8.53603 21.6358 9.96053 21.4912 10.3129C22.3895 11.2929 22.932 12.5424 22.932 14.0707C22.932 19.4479 19.6572 20.632 16.5398 20.9785C17.0415 21.4125 17.5 22.2642 17.5 23.5709V27.4127C17.5 27.7849 17.724 28.2224 18.4345 28.0847C23.9937 26.2309 28 20.9844 28 14.801C28 7.06953 21.7315 0.801025 14 0.801025Z"
-                      fill="currentColor"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_github">
-                      <rect
-                        width="28"
-                        height="28"
-                        fill="white"
-                        transform="translate(0 0.801025)"
-                      />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="text-black hover:text-primary transition-colors"
-              >
-                <svg width="28" height="28" viewBox="0 0 28 29" fill="none">
-                  <path
-                    d="M27.9452 6.13263C26.8969 6.59417 25.7864 6.89883 24.6493 7.0368C25.8465 6.31726 26.7428 5.18885 27.1728 3.85996C26.0633 4.50746 24.8337 4.9788 23.5247 5.2413C22.6611 4.3178 21.5167 3.70529 20.2693 3.49888C19.0218 3.29248 17.7411 3.50372 16.6261 4.09982C15.511 4.69592 14.624 5.64351 14.1027 6.79544C13.5815 7.94738 13.4551 9.2392 13.7433 10.4703C8.97167 10.2451 4.74483 7.95263 1.91333 4.48996C1.39859 5.36475 1.13011 6.36249 1.13633 7.37746C1.13633 9.37246 2.15133 11.126 3.689 12.1561C2.77767 12.1271 1.88647 11.8807 1.08967 11.4375V11.5075C1.08915 12.8333 1.54731 14.1184 2.38642 15.1448C3.22554 16.1713 4.39391 16.8759 5.69333 17.139C4.85135 17.3646 3.96948 17.3985 3.11267 17.2381C3.48148 18.3791 4.19727 19.3766 5.16018 20.0912C6.12309 20.8059 7.28508 21.2021 8.484 21.2246C6.45345 22.8182 3.94622 23.6832 1.365 23.6805C0.91 23.6805 0.456167 23.6536 0 23.6023C2.63166 25.2873 5.6916 26.1818 8.8165 26.1795C19.3783 26.1795 25.1475 17.4341 25.1475 9.86363C25.1475 9.61863 25.1475 9.37363 25.13 9.12863C26.257 8.31764 27.2291 7.31075 28 6.15596L27.9452 6.13263Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </a>
+            <div className="flex justify-center items-center gap-8 pt-12">
+              {socialLinks.map((link) => (
+                <a href={link.href} target="_blank" rel="noopener noreferrer" key={link.label} className="text-black hover:text-primary transition-colors">
+                  <link.icon className="w-6 h-6" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-12 md:py-20 px-4 md:px-6 relative">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-start">
-            {/* Left: Card with two overlapping rectangles */}
-            <div className="relative order-2 lg:order-1">
-              {/* Background blur effects */}
-              <div className="absolute -top-8 -left-8 w-40 h-40 rounded-full bg-pink-200 opacity-30 blur-[24px]"></div>
-              <div className="absolute bottom-8 -right-8 w-32 h-32 rounded-full bg-pink-300 opacity-40 blur-[20px]"></div>
-
-              {/* Two overlapping rectangles */}
-              <div className="relative w-full aspect-[4/5] max-w-lg mx-auto">
-                {/* Base white rectangle */}
-                <div className="absolute inset-0 bg-white rounded-3xl shadow-2xl"></div>
-
-                {/* Pink tilted overlay rectangle */}
-                <div
-                  className="absolute inset-0 rounded-3xl shadow-lg transform rotate-3"
-                  style={{ backgroundColor: "rgba(236, 72, 153, 0.15)" }}
-                ></div>
-
-                {/* About Jenna text overlay */}
-                <div className="absolute bottom-8 left-8 right-8 z-10">
-                  <h3 className="text-2xl md:text-[48px] font-bold text-gray-400 leading-tight md:leading-[48px] opacity-60">
-                    About Jenna
-                  </h3>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: About content */}
-            <div className="space-y-6 md:space-y-8 pt-0 md:pt-8 order-1 lg:order-2">
-              <div className="space-y-4">
-                <div className="flex items-center gap-2 md:gap-4">
-                  <h2 className="text-3xl md:text-[48px] font-bold text-black leading-tight md:leading-[48px]">
-                    About
-                  </h2>
-                  <h2 className="text-3xl md:text-[48px] font-bold text-black leading-tight md:leading-[48px] relative whitespace-nowrap">
-                    Me
-                    <div className="absolute -bottom-1 left-0 w-full h-3 md:h-4 bg-primary/30 opacity-30"></div>
-                  </h2>
-                </div>
-                <div className="w-12 md:w-16 h-1 bg-primary rounded-full"></div>
-              </div>
-
-              <div className="space-y-4 md:space-y-6 text-sm md:text-[18px] text-black leading-relaxed md:leading-[29.25px] max-w-xl">
-                <p>
-                  I'm a passionate front-end developer who believes that{" "}
-                  <span className="font-semibold relative whitespace-nowrap">
-                    great design meets functionality
-                    <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
-                  </span>{" "}
-                  in every pixel. With a keen eye for detail and a love for
-                  clean, efficient code, I transform creative visions into
-                  interactive digital experiences.
-                </p>
-                <p>
-                  My journey in web development started with curiosity and has
-                  evolved into a deep appreciation for{" "}
-                  <span className="font-semibold relative whitespace-nowrap">
-                    user-centered design
-                    <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
-                  </span>{" "}
-                  and modern development practices. I specialize in React,
-                  TypeScript, and creating responsive interfaces that work
-                  beautifully across all devices.
-                </p>
-                <p>
-                  When I'm not coding, you'll find me exploring the latest
-                  design trends, contributing to open-source projects, or
-                  experimenting with new animation libraries to bring more{" "}
-                  <span className="font-semibold relative">
-                    life and personality
-                    <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
-                  </span>{" "}
-                  to the web.
-                </p>
-              </div>
-
-              {/* Stats Cards - positioned below text content */}
-              {/* <div className="grid grid-cols-3 gap-4 max-w-lg mt-12">
-                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
-                  <div className="text-[30px] font-bold text-primary leading-[36px]">
-                    3+
-                  </div>
-                  <div className="text-[16px] text-black mt-2 leading-[24px]">
-                    Years
-                    <br />
-                    Experience
-                  </div>
-                </div>
-                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
-                  <div className="text-[30px] font-bold text-primary leading-[36px]">
-                    25+
-                  </div>
-                  <div className="text-[16px] text-black mt-2 leading-[24px]">
-                    Projects
-                    <br />
-                    Completed
-                  </div>
-                </div>
-                <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
-                  <div className="text-[30px] font-bold text-primary leading-[36px]">
-                    100%
-                  </div>
-                  <div className="text-[16px] text-black mt-2 leading-[24px]">
-                    Client
-                    <br />
-                    Satisfaction
-                  </div>
-                </div>
-              </div> */}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Projects Section */}
       <section id="projects" className="py-12 md:py-20 px-4 md:px-6 relative">
@@ -516,93 +220,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-12 md:py-20 px-4 md:px-6 relative">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12 md:mb-16">
-            <div className="text-4xl md:text-6xl mb-6 md:mb-8">💌</div>
-            <div className="space-y-4">
-              <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 relative">
-                <h2 className="text-3xl md:text-5xl font-bold text-black">Let's Create</h2>
-                <div className="relative w-auto">
-                  <div className="w-full -bottom-1 h-3 md:h-4 bg-primary/20 opacity-100 absolute"></div>
-                  <h2 className="text-3xl md:text-5xl font-bold text-black">
-                    Something Magical
-                  </h2>
-                </div>
-              </div>
-              <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-                Ready to bring your ideas to life? I'd love to hear about your
-                project and discuss how we can create something {" "}
-                <span className="relative whitespace-nowrap">
-                  <span className="absolute -bottom-1 left-0 w-full h-3 bg-yellow-200 opacity-30"></span>
-                  <span className="relative">extraordinary together</span>
-                </span>
-                {" "}
-                <span className="ml-2">✨</span>
-              </p>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-8 lg:p-12">
-            <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-                <div className="space-y-2">
-                  <label className="text-gray-700 font-medium text-sm md:text-base">
-                    Your Name <span className="text-primary">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Enter your full name"
-                    className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl md:rounded-2xl focus:border-primary focus:outline-none transition-colors text-sm md:text-base"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-gray-700 font-medium text-sm md:text-base">
-                    Email Address <span className="text-primary">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="your.email@example.com"
-                    className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl md:rounded-2xl focus:border-primary focus:outline-none transition-colors text-sm md:text-base"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <label className="text-gray-700 font-medium text-sm md:text-base">
-                  Project Details <span className="text-primary">*</span>
-                </label>
-                <textarea
-                  name="projectDetails"
-                  value={formData.projectDetails}
-                  onChange={handleInputChange}
-                  placeholder="Tell me about your project..."
-                  rows={5}
-                  className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl md:rounded-2xl focus:border-primary focus:outline-none transition-colors resize-none text-sm md:text-base"
-                  required
-                ></textarea>
-              </div>
-              <div className="text-center">
-                <button
-                  type="submit"
-                  className="w-full md:w-auto bg-gradient-to-r from-primary-700 to-primary text-white px-6 md:px-12 py-3 md:py-4 rounded-full text-base md:text-lg font-medium shadow-lg hover:shadow-xl transition-shadow"
-                >
-                  Send Message ✨
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
 
       {/* Footer Spacer */}
       <div className="h-20"></div>
