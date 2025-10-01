@@ -97,7 +97,7 @@ export default function Index() {
 
                 {/* Project Info */}
                 <div className="p-4 md:p-6">
-                  <h3 className="text-lg md:text-xl font-bold text-black mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="text-lg md:text-xl text-gray-800 mb-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                   {/* <p className="text-sm md:text-base text-gray-600 mb-4 line-clamp-2">

@@ -22,8 +22,8 @@ export default function Header() {
             href="/"
             className={`transition-colors ${
               location.pathname === '/' 
-                ? 'text-primary font-bold' 
-                : 'text-gray-800 hover:text-primary'
+                ? 'text-primary' 
+                : 'text-gray-800 hover:text-primary font-light'
             }`}
           >
             {t('navigation.projects')}
@@ -32,8 +32,8 @@ export default function Header() {
             href="/about"
             className={`transition-colors ${
               location.pathname === '/about' 
-                ? 'text-primary font-bold' 
-                : 'text-gray-800 hover:text-primary'
+                ? 'text-primary' 
+                : 'text-gray-800 hover:text-primary font-light'
             }`}
           >
             {t('navigation.about')}
@@ -42,8 +42,8 @@ export default function Header() {
             href="/contact"
             className={`transition-colors ${
               location.pathname === '/contact' 
-                ? 'text-primary font-bold' 
-                : 'text-gray-800 hover:text-primary'
+                ? 'text-primary' 
+                : 'text-gray-800 hover:text-primary font-light'
             }`}
           >
             {t('navigation.contact')}
@@ -57,7 +57,7 @@ export default function Header() {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path
               d="M4 6H20M4 12H20M4 18H20"
-              stroke="gray-800"
+              stroke="#1f2937"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -66,17 +66,44 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200">
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex flex-col space-y-4">
+      {/* Mobile Menu Overlay */}
+      <div className={`md:hidden fixed inset-0 z-50 transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        {/* Backdrop */}
+        <div 
+          className="absolute inset-0 h-[100vh] bg-black/20"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+        
+        {/* Menu Panel */}
+        <div className={`absolute top-0 right-0 h-[100vh] w-80 max-w-[70vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          {/* Header */}
+          <div className="flex items-center justify-between p-6 border-b border-gray-200">
+            <h2 className="text-lg font-medium text-gray-800">Menu</h2>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M18 6L6 18M6 6l12 12"
+                  stroke="#1f2937"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+          
+          {/* Menu Items */}
+          <div className="p-6">
+            <div className="flex flex-col space-y-6">
               <a
                 href="/"
-                className={`text-left transition-colors py-2 text-lg font-medium ${
+                className={`text-left transition-colors py-3 text-lg font-medium ${
                   location.pathname === '/' 
-                    ? 'text-primary font-bold' 
-                    : 'text-gray-800 hover:text-primary'
+                    ? 'text-primary' 
+                    : 'text-gray-800 hover:text-primary font-light'
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -84,10 +111,10 @@ export default function Header() {
               </a>
               <a
                 href="/about"
-                className={`text-left transition-colors py-2 text-lg font-medium ${
+                className={`text-left transition-colors py-3 text-lg font-medium ${
                   location.pathname === '/about' 
-                    ? 'text-primary font-bold' 
-                    : 'text-gray-800 hover:text-primary'
+                    ? 'text-primary' 
+                    : 'text-gray-800 hover:text-primary font-light'
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -95,10 +122,10 @@ export default function Header() {
               </a>
               <a
                 href="/contact"
-                className={`text-left transition-colors py-2 text-lg font-medium ${
+                className={`text-left transition-colors py-3 text-lg font-medium ${
                   location.pathname === '/contact' 
-                    ? 'text-primary font-bold' 
-                    : 'text-gray-800 hover:text-primary'
+                    ? 'text-primary' 
+                    : 'text-gray-800 hover:text-primary font-light'
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -107,7 +134,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }

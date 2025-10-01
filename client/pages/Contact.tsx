@@ -54,22 +54,22 @@ export default function Contact() {
             <div className="text-4xl md:text-6xl mb-6 md:mb-8">💌</div>
             <div className="space-y-4">
               <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 relative">
-                <h2 className="text-3xl md:text-5xl font-bold text-black">{t('contact.title')}</h2>
+                <h2 className="text-xl md:text-3xl text-gray-800 font-bold">{t('contact.title')}</h2>
                 <div className="relative w-auto">
                   <div className="w-full -bottom-1 h-3 md:h-4 bg-primary/20 opacity-100 absolute"></div>
-                  <h2 className="text-3xl md:text-5xl font-bold text-black">
+                  <h2 className="text-xl md:text-3xl text-gray-800 font-bold">
                     {t('contact.subtitle')}
                   </h2>
                 </div>
               </div>
-              <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+              <p className="text-base md:text-xl text-gray-600 font-light max-w-3xl mx-auto px-4">
                 {t('contact.description')}{" "}
                 <span className="relative whitespace-nowrap">
                   <span className="absolute -bottom-1 left-0 w-full h-3 bg-yellow-200 opacity-30"></span>
-                  <span className="relative">{t('contact.highlight')}</span>
+                  <span className="relative font-medium">{t('contact.highlight')}</span>
                 </span>
                 {" "}
-                <span className="ml-2">{t('contact.description2')}</span>
+                <span className="ml-2 font-medium">{t('contact.description2')}</span>
               </p>
             </div>
           </div>
@@ -79,7 +79,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                 <div className="space-y-2">
-                  <label className="text-gray-700 font-medium text-sm md:text-base">
+                  <label className="text-gray-800 font-medium text-sm md:text-base">
                     {t('contact.form.name')} <span className="text-primary">{t('contact.form.required')}</span>
                   </label>
                   <input
@@ -93,7 +93,7 @@ export default function Contact() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-gray-700 font-medium text-sm md:text-base">
+                  <label className="text-gray-800 font-medium text-sm md:text-base">
                     {t('contact.form.email')} <span className="text-primary">{t('contact.form.required')}</span>
                   </label>
                   <input
@@ -108,7 +108,7 @@ export default function Contact() {
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-gray-700 font-medium text-sm md:text-base">
+                <label className="text-gray-800 font-medium text-sm md:text-base">
                   {t('contact.form.projectDetails')} <span className="text-primary">{t('contact.form.required')}</span>
                 </label>
                 <textarea
@@ -137,7 +137,7 @@ export default function Contact() {
             <p className="text-gray-600 mb-6">{t('contact.directContact')}</p>
             <div className="flex justify-center items-center gap-8">
               {socialLinks.map((link) => (
-                <a href={link.href} target="_blank" rel="noopener noreferrer" key={link.label} className="text-black hover:text-primary transition-colors">
+                <a href={link.href} target="_blank" rel="noopener noreferrer" key={link.label} className="text-gray-800 hover:text-primary transition-colors">
                   <link.icon className="w-6 h-6" />
                 </a>
               ))}

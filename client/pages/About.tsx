@@ -32,21 +32,21 @@ export default function About() {
           <div className="text-center space-y-6 md:space-y-8">
             <div className="space-y-4">
               <div className="flex items-center justify-center gap-2 md:gap-4">
-                <h2 className="text-3xl md:text-[48px] font-bold text-black leading-tight md:leading-[48px]">
+                <h2 className="text-xl md:text-3xl font-bold text-gray-800 leading-tight md:leading-[48px]">
                   {t('about.title')}
                 </h2>
-                <h2 className="text-3xl md:text-[48px] font-bold text-black leading-tight md:leading-[48px] relative whitespace-nowrap">
+                <h2 className="text-xl md:text-3xl font-bold text-gray-800 leading-tight md:leading-[48px] relative whitespace-nowrap">
                   {t('about.subtitle')}
-                  <div className="absolute -bottom-1 left-0 w-full h-3 md:h-4 bg-primary/30 opacity-30"></div>
+                  <div className="absolute bottom-1 left-0 w-full h-3 md:h-4 bg-primary/30 opacity-30"></div>
                 </h2>
               </div>
-              <div className="w-12 md:w-16 h-1 bg-primary rounded-full mx-auto"></div>
+              {/* <div className="w-12 md:w-16 h-1 bg-primary rounded-full mx-auto"></div> */}
             </div>
 
-            <div className="space-y-4 md:space-y-6 text-sm md:text-[18px] text-black leading-relaxed md:leading-[29.25px] max-w-3xl mx-auto">
+            <div className="space-y-4 font-light md:space-y-6 text-sm md:text-[18px] text-gray-800 leading-relaxed md:leading-[29.25px] max-w-3xl mx-auto">
               <p>
                 {t('about.description1')}{" "}
-                <span className="font-semibold relative whitespace-nowrap">
+                <span className="font-medium relative whitespace-nowrap">
                   {t('about.highlight1')}
                   <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
                 </span>{" "}
@@ -54,7 +54,7 @@ export default function About() {
               </p>
               <p>
                 {t('about.description2')}{" "}
-                <span className="font-semibold relative whitespace-nowrap">
+                <span className="font-medium relative whitespace-nowrap">
                   {t('about.highlight2')}
                   <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
                 </span>{" "}
@@ -62,7 +62,7 @@ export default function About() {
               </p>
               <p>
                 {t('about.description3')}{" "}
-                <span className="font-semibold relative">
+                <span className="font-medium relative">
                   {t('about.highlight3')}
                   <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
                 </span>{" "}
@@ -87,7 +87,7 @@ export default function About() {
             {/* Social Links */}
             <div className="flex justify-center items-center gap-8 pt-8">
               {socialLinks.map((link) => (
-                <a href={link.href} target="_blank" rel="noopener noreferrer" key={link.label} className="text-black hover:text-primary transition-colors">
+                <a href={link.href} target="_blank" rel="noopener noreferrer" key={link.label} className="text-gray-800 hover:text-primary transition-colors">
                   <link.icon className="w-6 h-6" />
                 </a>
               ))}

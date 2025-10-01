@@ -36,8 +36,8 @@ export default function LoadingAnimation() {
         
         {/* 로딩 텍스트 */}
         <div className="space-y-2">
-          <h2 className="text-2xl font-bold text-gray-800">Loading...</h2>
-          <p className="text-gray-600">Preparing something amazing ✨</p>
+          <h2 className="text-2xl text-gray-800">Loading...</h2>
+          <p className="text-gray-600 font-light">Preparing something amazing ✨</p>
         </div>
         
         {/* 로딩 바 */}

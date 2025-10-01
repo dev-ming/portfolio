@@ -46,98 +46,93 @@ export default function ProjectDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
-      {/* Background Blur Effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-72 h-72 rounded-full bg-blur-blue opacity-30 blur-[12px] left-10 top-20 mix-blend-multiply"></div>
-        <div className="absolute w-72 h-72 rounded-full bg-blur-pink opacity-30 blur-[12px] right-20 top-40 mix-blend-multiply"></div>
-        <div className="absolute w-72 h-72 rounded-full bg-blur-yellow opacity-30 blur-[12px] left-1/2 top-96 transform -translate-x-1/2 mix-blend-multiply"></div>
-      </div>
-
+    <div className="min-h-screen bg-white">
       <Header />
 
       <div className="pt-24 pb-12 px-4 md:px-6">
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto max-w-4xl">
           {/* Back Button */}
           <button 
             onClick={() => navigate('/')}
-            className="mb-8 flex items-center gap-2 text-gray-600 hover:text-primary transition-colors"
+            className="mb-12 flex items-center gap-2 text-gray-600 hover:text-primary transition-colors text-sm"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            Back to Projects
+            back
           </button>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Project Image */}
-            <div className="relative">
-              <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-2xl">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-auto rounded-xl md:rounded-2xl"
-                />
+          {/* Project Header */}
+          <div className="mb-16">
+            <h1 className="text-4xl md:text-6xl font-light text-black mb-6 leading-tight">
+              {project.title}
+            </h1>
+            <p className="text-sm md:text-lg text-gray-600 leading-relaxed max-w-2xl">
+              {project.longDescription}
+            </p>
+          </div>
+
+          {/* Project Image */}
+          <div className="mb-16">
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className="w-full h-auto rounded-lg shadow-sm"
+            />
+            
+            {/* Action Links */}
+            <div className="mt-6 flex flex-col sm:flex-row gap-4">
+              <a 
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-gray-800 hover:text-primary transition-colors text-sm"
+              >
+                <span>View Live Site</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+              <a 
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-gray-800 hover:text-primary transition-colors text-sm"
+              >
+                <span>View Code</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Project Details */}
+          <div className="grid md:grid-cols-2 gap-16">
+            {/* Tech Stack */}
+            <div>
+              <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Tech Stack</h3>
+              <div className="flex flex-wrap gap-2">
+                {project.techStack.map((tech) => (
+                  <span 
+                    key={tech} 
+                    className="inline-flex items-center px-3 py-1 bg-primary text-white  text-sm font-medium"
+                  >
+                    #{tech}
+                  </span>
+                ))}
               </div>
             </div>
 
-            {/* Project Details */}
-            <div className="space-y-6">
-              <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-black mb-4">
-                  {project.title}
-                </h1>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  {project.longDescription}
-                </p>
-              </div>
-
-              {/* Tech Stack */}
-              <div>
-                <h3 className="text-xl font-semibold text-black mb-4">Tech Stack</h3>
-                <div className="flex flex-wrap gap-3">
-                  {project.techStack.map((tech) => (
-                    <span 
-                      key={tech}
-                      className="px-4 py-2 bg-primary text-white rounded-full text-sm font-medium shadow-md"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Features */}
-              <div>
-                <h3 className="text-xl font-semibold text-black mb-4">Key Features</h3>
-                <ul className="space-y-2">
-                  {project.features.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                <a 
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 bg-gradient-to-r from-primary-700 to-primary text-white px-6 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-shadow text-center flex items-center justify-center gap-2"
-                >
-                  View Live Site <span className="text-lg">🌐</span>
-                </a>
-                <a 
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 border-2 border-primary text-primary px-6 py-3 rounded-full font-medium hover:bg-primary/5 transition-colors text-center flex items-center justify-center gap-2"
-                >
-                  View Code <span className="text-lg">💻</span>
-                </a>
+            {/* Features */}
+            <div>
+              <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Key Features</h3>
+              <div className="space-y-2">
+                {project.features.map((feature, index) => (
+                  <div key={index} className="text-gray-800">
+                    {feature}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
