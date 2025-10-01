@@ -1,8 +1,10 @@
 import { Mail, Github, Linkedin } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Header from "@/components/Header";
 
 export default function Contact() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -52,23 +54,22 @@ export default function Contact() {
             <div className="text-4xl md:text-6xl mb-6 md:mb-8">💌</div>
             <div className="space-y-4">
               <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 relative">
-                <h2 className="text-3xl md:text-5xl font-bold text-black">Let's Create</h2>
+                <h2 className="text-3xl md:text-5xl font-bold text-black">{t('contact.title')}</h2>
                 <div className="relative w-auto">
                   <div className="w-full -bottom-1 h-3 md:h-4 bg-primary/20 opacity-100 absolute"></div>
                   <h2 className="text-3xl md:text-5xl font-bold text-black">
-                    Something Magical
+                    {t('contact.subtitle')}
                   </h2>
                 </div>
               </div>
               <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-                Ready to bring your ideas to life? I'd love to hear about your
-                project and discuss how we can create something {" "}
+                {t('contact.description')}{" "}
                 <span className="relative whitespace-nowrap">
                   <span className="absolute -bottom-1 left-0 w-full h-3 bg-yellow-200 opacity-30"></span>
-                  <span className="relative">extraordinary together</span>
+                  <span className="relative">{t('contact.highlight')}</span>
                 </span>
                 {" "}
-                <span className="ml-2">✨</span>
+                <span className="ml-2">{t('contact.description2')}</span>
               </p>
             </div>
           </div>
@@ -79,28 +80,28 @@ export default function Contact() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                 <div className="space-y-2">
                   <label className="text-gray-700 font-medium text-sm md:text-base">
-                    Your Name <span className="text-primary">*</span>
+                    {t('contact.form.name')} <span className="text-primary">{t('contact.form.required')}</span>
                   </label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    placeholder="Enter your full name"
+                    placeholder={t('contact.form.namePlaceholder')}
                     className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl md:rounded-2xl focus:border-primary focus:outline-none transition-colors text-sm md:text-base"
                     required
                   />
                 </div>
                 <div className="space-y-2">
                   <label className="text-gray-700 font-medium text-sm md:text-base">
-                    Email Address <span className="text-primary">*</span>
+                    {t('contact.form.email')} <span className="text-primary">{t('contact.form.required')}</span>
                   </label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    placeholder="your.email@example.com"
+                    placeholder={t('contact.form.emailPlaceholder')}
                     className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl md:rounded-2xl focus:border-primary focus:outline-none transition-colors text-sm md:text-base"
                     required
                   />
@@ -108,13 +109,13 @@ export default function Contact() {
               </div>
               <div className="space-y-2">
                 <label className="text-gray-700 font-medium text-sm md:text-base">
-                  Project Details <span className="text-primary">*</span>
+                  {t('contact.form.projectDetails')} <span className="text-primary">{t('contact.form.required')}</span>
                 </label>
                 <textarea
                   name="projectDetails"
                   value={formData.projectDetails}
                   onChange={handleInputChange}
-                  placeholder="Tell me about your project..."
+                  placeholder={t('contact.form.projectPlaceholder')}
                   rows={5}
                   className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl md:rounded-2xl focus:border-primary focus:outline-none transition-colors resize-none text-sm md:text-base"
                   required
@@ -125,7 +126,7 @@ export default function Contact() {
                   type="submit"
                   className="w-full md:w-auto bg-gradient-to-r from-primary-700 to-primary text-white px-6 md:px-12 py-3 md:py-4 rounded-full text-base md:text-lg font-medium shadow-lg hover:shadow-xl transition-shadow"
                 >
-                  Send Message ✨
+                  {t('contact.form.sendMessage')}
                 </button>
               </div>
             </form>
@@ -133,7 +134,7 @@ export default function Contact() {
 
           {/* Social Links */}
           <div className="text-center mt-12">
-            <p className="text-gray-600 mb-6">Or connect with me directly:</p>
+            <p className="text-gray-600 mb-6">{t('contact.directContact')}</p>
             <div className="flex justify-center items-center gap-8">
               {socialLinks.map((link) => (
                 <a href={link.href} target="_blank" rel="noopener noreferrer" key={link.label} className="text-black hover:text-primary transition-colors">

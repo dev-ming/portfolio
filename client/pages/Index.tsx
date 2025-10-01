@@ -1,8 +1,10 @@
 import { Mail, Github, Linkedin } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Header from "@/components/Header";
 
 export default function Index() {
+  const { t } = useTranslation();
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/dev-ming", label: "GitHub" },
@@ -30,32 +32,23 @@ export default function Index() {
         <div className="container mx-auto max-w-4xl text-center">
           <div className="space-y-4 md:space-y-6">
             <h1 className="text-4xl md:text-[60px] font-bold text-black leading-tight md:leading-[75px]">
-              Hi, I'm
+              {t('hero.greeting')}
             </h1>
             <h2 className="text-4xl md:text-[60px] font-bold text-primary leading-tight md:leading-[75px]">
-              Mingee Kim
+              {t('hero.name')}
             </h2>
             <div className="text-base md:text-[20px] text-black max-w-2xl mx-auto relative leading-relaxed md:leading-[28px] mt-6 md:mt-8">
-              but you can call me{" "}
+              {t('hero.nickname')}{" "}
               <span className="relative">
                 <span className="absolute -bottom-1 left-0 w-full h-3 bg-primary/30 opacity-40"></span>
                 <span className="relative font-medium">Jenna</span>
               </span>
             </div>
             <div className="text-xl md:text-[30px] text-black max-w-lg mx-auto leading-relaxed md:leading-[36px] mt-6 md:mt-8">
-              I craft{" "}
-              <span className="relative font-semibold">
-                <span className="relative">beautiful digital experiences</span>
-              </span>
+              {t('hero.title')}
             </div>
             <div className="text-sm md:text-[18px] text-black max-w-2xl mx-auto leading-relaxed md:leading-[29.25px] mt-6 md:mt-8 px-4">
-              Specializing in front-end development with a passion for{" "}
-              <span className="font-bold relative">
-                clean code
-                <span className="absolute -bottom-1 left-0 w-full h-2 bg-primary/35 opacity-40"></span>
-              </span>
-              , intuitive design, and seamless user interactions that bring
-              ideas to life.
+              {t('hero.description')}
             </div>
 
             {/* CTA Buttons */}
@@ -71,10 +64,10 @@ export default function Index() {
                 }
               }}
               >
-                View My Work
+                {t('hero.viewWork')}
               </button>
               <button className="w-full sm:w-[189px] h-[50px] md:h-[60px] border-2 border-primary text-primary rounded-full font-medium text-sm md:text-[16px] hover:bg-primary/5 transition-colors">
-                Let's Connect
+                {t('hero.letsConnect')}
               </button>
             </div>
 
@@ -96,26 +89,25 @@ export default function Index() {
         <div className="container mx-auto max-w-7xl">
           {/* Section Header */}
           <div className="text-center mb-12 md:mb-16">
-            <div className="text-4xl md:text-6xl mb-6 md:mb-8">✨</div>
+            {/* <div className="text-4xl md:text-6xl mb-6 md:mb-8">✨</div> */}
             <div className="space-y-4">
               <div className="flex items-center justify-center gap-2 md:gap-4">
-                <h2 className="text-3xl md:text-5xl font-bold text-black">My</h2>
+                <h2 className="text-3xl md:text-5xl font-bold text-black">{t('projects.title')}</h2>
                 <div className="relative">
                   <div className="w-full h-3 md:h-4 bg-primary/20 absolute -bottom-1"></div>
-                  <h2 className="text-3xl md:text-5xl font-bold text-black">Projects</h2>
+                  <h2 className="text-3xl md:text-5xl font-bold text-black">{t('projects.subtitle')}</h2>
                 </div>
                 <div className="text-3xl md:text-5xl font-bold text-transparent absolute">
-                  Favorite
+                  {t('projects.favorite')}
                 </div>
               </div>
               <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-                Here are some projects that make my heart happy! Each one is
-                crafted{" "}
+                {t('projects.description')}{" "}
                 <span className="relative whitespace-nowrap">
                   <span className="absolute -bottom-1 left-0 w-full h-3 bg-yellow-200 opacity-30"></span>
-                  <span className="relative font-medium">with love, creativity</span>
+                  <span className="relative font-medium">{t('projects.highlight')}</span>
                 </span>{" "}
-                and lots of coffee ☕
+                {t('projects.description2')}
               </p>
             </div>
           </div>
@@ -126,29 +118,31 @@ export default function Index() {
               {/* Project Image */}
               <div className="relative mb-6 md:mb-0">
                 <div className="relative bg-white rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-xl">
-                  <div className="w-full h-48 md:h-96 rounded-xl md:rounded-2xl bg-pink-500 shadow-lg flex items-center justify-center">
-                    image
+                  <div className="w-full h-48 md:h-96 rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
+                    <img 
+                      src="/nothing-stays-static.png" 
+                      alt="Nothing Stays Static - Animation Practice Gallery" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-8 h-8 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-lg md:text-xl">
+                  {/* <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-8 h-8 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-lg md:text-xl">
                     🚀
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
               {/* Project Details */}
               <div className="space-y-4 md:space-y-6">
                 <div className="flex items-center gap-2 md:gap-4">
-                  <span className="text-xl md:text-3xl">🎯</span>
+                  <span className="text-xl md:text-3xl">🎨</span>
                   <h3 className="text-xl md:text-3xl font-bold text-black">
-                    Interactive Dashboard
+                    Nothing Stays Static
                   </h3>
                 </div>
 
                 <div className="border-2 border-primary rounded-xl md:rounded-2xl p-4 md:p-6">
                   <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                    A modern analytics dashboard with smooth animations,
-                    real-time data visualization, and responsive design. Built
-                    with React and D3.js for seamless user experience.
+                    A creative portfolio website showcasing dynamic animations and interactive elements. Built with modern web technologies to demonstrate the power of motion design and user engagement.
                   </p>
                 </div>
 
@@ -156,7 +150,7 @@ export default function Index() {
                   <div className="flex items-center gap-2 md:gap-4">
                     <span className="text-lg md:text-2xl">🛠️</span>
                     <h4 className="text-base md:text-lg font-semibold text-black">
-                      Tech Stack
+                      {t('projects.featured.techStack')}
                     </h4>
                   </div>
                   <div className="flex gap-2 md:gap-4 flex-wrap">
@@ -164,17 +158,32 @@ export default function Index() {
                       React
                     </span>
                     <span className="px-4 md:px-6 py-1.5 md:py-2 bg-primary text-white rounded-full text-base md:text-lg shadow-md">
-                      Next.js
+                      CSS
+                    </span>
+                    <span className="px-4 md:px-6 py-1.5 md:py-2 bg-primary text-white rounded-full text-base md:text-lg shadow-md">
+                      Motion
+                    </span>
+                    <span className="px-4 md:px-6 py-1.5 md:py-2 bg-primary text-white rounded-full text-base md:text-lg shadow-md">
+                      Tailwind
                     </span>
                   </div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                  <button className="flex-1 bg-gradient-to-r from-primary-700 to-primary text-white px-4 md:px-8 py-3 md:py-4 rounded-full font-medium shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center gap-2 text-base md:text-lg">
-                    View Live Site <span className="text-lg md:text-xl">🌐</span>
-                  </button>
-                  <button className="flex-1 border-2 border-primary text-primary px-4 md:px-8 py-3 md:py-4 rounded-full font-medium hover:bg-primary/5 transition-colors flex items-center justify-center gap-2 text-base md:text-lg">
-                    View Code <span className="text-lg md:text-xl">💻</span>
+                  <a 
+                    href="https://nothing-stays-static.netlify.app/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-gradient-to-r from-primary-700 to-primary text-white px-4 md:px-8 py-3 md:py-4 rounded-full font-medium shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center gap-2 text-base md:text-lg"
+                  >
+                    {t('projects.featured.viewLive')} <span className="text-lg md:text-xl">🌐</span>
+                  </a>
+                  <button
+                    onClick={() => {
+                      window.open('https://github.com/dev-ming/nothing-stays-static', '_blank');
+                    }}
+                   className="flex-1 border-2 border-primary text-primary px-4 md:px-8 py-3 md:py-4 rounded-full font-medium hover:bg-primary/5 transition-colors flex items-center justify-center gap-2 text-base md:text-lg">
+                    {t('projects.featured.viewCode')} <span className="text-lg md:text-xl">💻</span>
                   </button>
                 </div>
               </div>
@@ -208,15 +217,15 @@ export default function Index() {
           </div>
 
           {/* CTA Banner */}
-          <div className="text-center mt-12 md:mt-16">
+          {/* <div className="text-center mt-12 md:mt-16">
             <button className="hover:bg-gray-100 transition-colors inline-flex flex-wrap items-center gap-2 md:gap-4 bg-white border-2 border-black rounded-full px-6 md:px-10 py-3 md:py-4 shadow-lg text-base md:text-lg">
               <span className="text-base md:text-2xl">🎉</span>
               <span className="font-medium md:text-base text-sm">
-                Want to see more? Let's chat!
+                {t('projects.cta')}
               </span>
               <span className="text-base md:text-2xl">💬</span>
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
 

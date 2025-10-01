@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-50 h-16 md:h-20">
@@ -18,25 +20,25 @@ export default function Header() {
             href="/"
             className="text-black hover:text-primary transition-colors"
           >
-            Home
+            {t('navigation.home')}
           </a>
           <a
             href="/about"
             className="text-black hover:text-primary transition-colors"
           >
-            About
+            {t('navigation.about')}
           </a>
           <a
             href="/#projects"
             className="text-black hover:text-primary transition-colors"
           >
-            Projects
+            {t('navigation.projects')}
           </a>
           <a
             href="/contact"
             className="text-black hover:text-primary transition-colors"
           >
-            Contact
+            {t('navigation.contact')}
           </a>
         </div>
         {/* Mobile Menu Button */}
@@ -66,28 +68,28 @@ export default function Header() {
                 className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Home
+                {t('navigation.home')}
               </a>
               <a
                 href="/about"
                 className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                About
+                {t('navigation.about')}
               </a>
               <a
                 href="/#projects"
                 className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Projects
+                {t('navigation.projects')}
               </a>
               <a
                 href="/contact"
                 className="text-left text-black hover:text-primary transition-colors py-2 text-lg font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Contact
+                {t('navigation.contact')}
               </a>
             </div>
           </div>

@@ -1,0 +1,73 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Mingee Kim",
+    "nickname": "but you can call me",
+    "title": "I craft beautiful digital experiences",
+    "description": "Specializing in front-end development with a passion for clean code, intuitive design, and seamless user interactions that bring ideas to life.",
+    "viewWork": "View My Work",
+    "letsConnect": "Let's Connect"
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "Me",
+    "description1": "I'm a passionate front-end developer who believes that",
+    "highlight1": "great design meets functionality",
+    "description1_2": "in every pixel. With a keen eye for detail and a love for clean, efficient code, I transform creative visions into interactive digital experiences.",
+    "description2": "My journey in web development started with curiosity and has evolved into a deep appreciation for",
+    "highlight2": "user-centered design",
+    "description2_2": "and modern development practices. I specialize in React, TypeScript, and creating responsive interfaces that work beautifully across all devices.",
+    "description3": "When I'm not coding, you'll find me exploring the latest design trends, contributing to open-source projects, or experimenting with new animation libraries to bring more",
+    "highlight3": "life and personality",
+    "description3_2": "to the web.",
+    "resumeCTA": "Want to know more about my professional journey?",
+    "viewResume": "View My Resume"
+  },
+  "projects": {
+    "title": "My",
+    "subtitle": "Projects",
+    "favorite": "Favorite",
+    "description": "Here are some projects that make my heart happy! Each one is crafted",
+    "highlight": "with love, creativity",
+    "description2": "and lots of coffee ☕",
+    "featured": {
+      "title": "Interactive Dashboard",
+      "description": "A modern analytics dashboard with smooth animations, real-time data visualization, and responsive design. Built with React and D3.js for seamless user experience.",
+      "techStack": "Tech Stack",
+      "viewLive": "View Live Site",
+      "viewCode": "View Code"
+    },
+    "cta": "Want to see more? Let's chat!"
+  },
+  "contact": {
+    "title": "Let's Create",
+    "subtitle": "Something Magical",
+    "description": "Ready to bring your ideas to life? I'd love to hear about your project and discuss how we can create something",
+    "highlight": "extraordinary together",
+    "description2": "✨",
+    "form": {
+      "name": "Your Name",
+      "email": "Email Address",
+      "projectDetails": "Project Details",
+      "namePlaceholder": "Enter your full name",
+      "emailPlaceholder": "your.email@example.com",
+      "projectPlaceholder": "Tell me about your project...",
+      "sendMessage": "Send Message ✨",
+      "required": "*"
+    },
+    "directContact": "Or connect with me directly:"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "close": "Close",
+    "open": "Open"
+  }
+}

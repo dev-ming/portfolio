@@ -1,7 +1,9 @@
 import { Mail, Github, Linkedin, FileText } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import Header from "@/components/Header";
 
 export default function About() {
+  const { t } = useTranslation();
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/dev-ming", label: "GitHub" },
@@ -31,10 +33,10 @@ export default function About() {
             <div className="space-y-4">
               <div className="flex items-center justify-center gap-2 md:gap-4">
                 <h2 className="text-3xl md:text-[48px] font-bold text-black leading-tight md:leading-[48px]">
-                  About
+                  {t('about.title')}
                 </h2>
                 <h2 className="text-3xl md:text-[48px] font-bold text-black leading-tight md:leading-[48px] relative whitespace-nowrap">
-                  Me
+                  {t('about.subtitle')}
                   <div className="absolute -bottom-1 left-0 w-full h-3 md:h-4 bg-primary/30 opacity-30"></div>
                 </h2>
               </div>
@@ -43,41 +45,34 @@ export default function About() {
 
             <div className="space-y-4 md:space-y-6 text-sm md:text-[18px] text-black leading-relaxed md:leading-[29.25px] max-w-3xl mx-auto">
               <p>
-                I'm a passionate front-end developer who believes that{" "}
+                {t('about.description1')}{" "}
                 <span className="font-semibold relative whitespace-nowrap">
-                  great design meets functionality
+                  {t('about.highlight1')}
                   <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
                 </span>{" "}
-                in every pixel. With a keen eye for detail and a love for
-                clean, efficient code, I transform creative visions into
-                interactive digital experiences.
+                {t('about.description1_2')}
               </p>
               <p>
-                My journey in web development started with curiosity and has
-                evolved into a deep appreciation for{" "}
+                {t('about.description2')}{" "}
                 <span className="font-semibold relative whitespace-nowrap">
-                  user-centered design
+                  {t('about.highlight2')}
                   <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
                 </span>{" "}
-                and modern development practices. I specialize in React,
-                TypeScript, and creating responsive interfaces that work
-                beautifully across all devices.
+                {t('about.description2_2')}
               </p>
               <p>
-                When I'm not coding, you'll find me exploring the latest
-                design trends, contributing to open-source projects, or
-                experimenting with new animation libraries to bring more{" "}
+                {t('about.description3')}{" "}
                 <span className="font-semibold relative">
-                  life and personality
+                  {t('about.highlight3')}
                   <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
                 </span>{" "}
-                to the web.
+                {t('about.description3_2')}
               </p>
             </div>
 
             {/* Resume CTA */}
             <div className="pt-8">
-              <p className="text-gray-600 mb-6">Want to know more about my professional journey?</p>
+              <p className="text-gray-600 mb-6">{t('about.resumeCTA')}</p>
               <a 
                 href="https://mingee-resume.vercel.app/ko" 
                 target="_blank" 
@@ -85,7 +80,7 @@ export default function About() {
                 className="inline-flex items-center gap-2 bg-primary text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-medium shadow-lg hover:shadow-xl transition-shadow text-sm md:text-base"
               >
                 <FileText className="w-4 h-4 md:w-5 md:h-5" />
-                View My Resume
+                {t('about.viewResume')}
               </a>
             </div>
 
