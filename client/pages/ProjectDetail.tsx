@@ -18,6 +18,22 @@ const projects = {
       "Modern web technologies",
       "Creative motion design"
     ]
+  },
+  "kingdom-story-reboot": {
+    title: "Kingdom Story Reboot",
+    description: "킹덤스토리 창천 사전예약 페이지",
+    longDescription: "킹덤스토리 창천의 사전예약 페이지입니다. 반응형 디자인과 애니메이션을 사용하여 사용자 경험을 개선하였습니다.",
+    techStack: ["React", "TypeScript", "TailwindCSS", "Vite"],
+    liveUrl: "https://reboot.kingdom-story.com/",
+    githubUrl: "",
+    image: "/kingdomstory-reboot.png",
+    features: [
+      "Interactive storytelling experience",
+      "Immersive user interface design",
+      "Responsive and mobile-friendly",
+      "Modern React with TypeScript",
+      "Smooth animations and transitions",
+    ]
   }
 };
 
@@ -93,17 +109,19 @@ export default function ProjectDetail() {
                   <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </a>
-              <a 
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-800 hover:text-primary transition-colors text-sm"
-              >
-                <span>View Code</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </a>
+              {project.githubUrl && (
+                <a 
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-gray-800 hover:text-primary transition-colors text-sm"
+                >
+                  <span>View Code</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </a>
+              )}
             </div>
           </div>
 

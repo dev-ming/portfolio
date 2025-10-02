@@ -5,6 +5,14 @@ import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import LoadingAnimation from "@/components/LoadingAnimation";
 
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  techStack: string[];
+}
+
 export default function Index() {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -15,13 +23,20 @@ export default function Index() {
     { icon: Mail, href: "mailto:ruaaa1307@gmail.com", label: "Email" },
 ];
 
-  const projects = [
+  const projects: Project[] = [
     {
       id: "nothing-stays-static",
       title: "Nothing Stays Static",
       description: "A creative portfolio website showcasing dynamic animations and interactive elements.",
       image: "/nothing-stays-static.png",
       techStack: ["React", "CSS", "Motion", "Tailwind"]
+    },
+    {
+      id: "kingdom-story-reboot",
+      title: "Kingdom Story Reboot",
+      description: "킹덤스토리 창천 사전예약 페이지",
+      image: "/kingdomstory-reboot.png",
+      techStack: ["React", "TypeScript", "TailwindCSS", "Vite"]
     }
   ];
 
