@@ -34,6 +34,23 @@ const projects = {
       "Modern React with TypeScript",
       "Smooth animations and transitions",
     ]
+  },
+  "kingdom-heroes-war-marketplace": {
+    title: "Kingdom Heroes War Marketplace",
+    description: "A marketplace platform for Kingdom Heroes War game featuring NFT trading and user management. Built with modern web technologies and Web3 integration.",
+    longDescription: "Kingdom Heroes War Marketplace is a comprehensive platform that enables users to trade NFTs, manage their game assets, and interact with the Kingdom Heroes War ecosystem. This project demonstrates advanced Web3 integration, user authentication, and marketplace functionality. The platform features a clean, intuitive interface that makes NFT trading accessible to both beginners and experienced users.",
+    techStack: ["React", "Next.js", "TypeScript", "TailwindCSS", "recoil", "SWR", "wagmi", "Web3", "NFT"],
+    liveUrl: "https://marketplace.kingdomheroeswar.io/",
+    githubUrl: "",
+    image: "/marketplace.png",
+    features: [
+      "NFT trading marketplace",
+      "Web3 wallet integration",
+      "User authentication system",
+      "Asset management interface",
+      "Responsive design",
+      "Real-time transaction updates"
+    ]
   }
 };
 

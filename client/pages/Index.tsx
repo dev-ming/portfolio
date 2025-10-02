@@ -37,6 +37,13 @@ export default function Index() {
       description: "킹덤스토리 창천 사전예약 페이지",
       image: "/kingdomstory-reboot.png",
       techStack: ["React", "TypeScript", "TailwindCSS", "Vite"]
+    },
+    {
+      id: "kingdom-heroes-war-marketplace",
+      title: "Kingdom Heroes War Marketplace",
+      description: "A marketplace platform for Kingdom Heroes War game featuring NFT trading and user management.",
+      image: "/marketplace.png",
+      techStack: ["React", "Next.js", "TypeScript", "TailwindCSS", "recoil", "SWR", "wagmi", "Web3", "NFT"]
     }
   ];
 
@@ -121,7 +128,7 @@ export default function Index() {
                   
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2 mt-4">
-                    {project.techStack.map((tech) => (
+                    {project.techStack.slice(0, 5).map((tech) => (
                       <span
                         key={tech}
                         className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs md:text-sm"
@@ -129,6 +136,11 @@ export default function Index() {
                         {tech}
                     </span>
                     ))}
+                    {project.techStack.length > 5 && (
+                      <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs md:text-sm">
+                        +{project.techStack.length - 5}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
