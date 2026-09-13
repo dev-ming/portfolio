@@ -1,0 +1,92 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "menu": "Menu",
+    "language": "언어"
+  },
+  "hero": {
+    "greeting": "안녕하세요,",
+    "name": "김민지입니다",
+    "nickname": "Jenna라고 불러주세요",
+    "title": "아름답고 편리한 디지털 경험을 만듭니다",
+    "description": "깔끔한 코드와 직관적인 디자인, 자연스러운 상호작용을 중요하게 생각하는 프론트엔드 개발자입니다.",
+    "viewWork": "프로젝트 보기",
+    "letsConnect": "연락하기"
+  },
+  "about": {
+    "title": "저를",
+    "subtitle": "소개합니다",
+    "description1": "좋은 디자인과 기능이",
+    "highlight1": "모든 화면에서 자연스럽게 만나는 것",
+    "description1_2": "을 중요하게 생각하는 프론트엔드 개발자입니다. 디테일을 놓치지 않으면서 읽기 쉽고 효율적인 코드로 아이디어를 실제 경험으로 구현합니다.",
+    "description2": "호기심으로 시작한 웹 개발은 이제",
+    "highlight2": "사용자 중심의 디자인",
+    "description2_2": "과 현대적인 개발 방식에 대한 꾸준한 탐구로 이어졌습니다. React와 TypeScript를 중심으로 모든 기기에서 편리하게 사용할 수 있는 반응형 인터페이스를 만듭니다.",
+    "description3": "개발하지 않을 때는 새로운 디자인 흐름을 살펴보거나 오픈소스에 기여하고, 다양한 애니메이션 라이브러리를 실험하며 웹에",
+    "highlight3": "생동감과 개성",
+    "description3_2": "을 더하는 방법을 찾습니다.",
+    "resumeCTA": "더 자세한 경력과 경험이 궁금하신가요?",
+    "viewResume": "이력서 보기"
+  },
+  "projects": {
+    "title": "나의",
+    "subtitle": "프로젝트",
+    "favorite": "주요",
+    "description": "즐겁게 고민하고 정성껏 만든 프로젝트를 소개합니다.",
+    "highlight": "사용자 경험과 완성도",
+    "description2": "를 중요하게 생각했습니다.",
+    "featured": {
+      "title": "인터랙티브 대시보드",
+      "description": "부드러운 애니메이션과 실시간 데이터 시각화, 반응형 디자인을 적용한 분석 대시보드입니다.",
+      "techStack": "기술 스택",
+      "viewLive": "사이트 보기",
+      "viewCode": "코드 보기"
+    },
+    "cta": "더 궁금한 점이 있다면 편하게 연락해주세요!"
+  },
+  "projectDetail": {
+    "back": "돌아가기",
+    "notFound": "프로젝트를 찾을 수 없습니다",
+    "backHome": "홈으로 돌아가기",
+    "viewLive": "사이트 보기",
+    "viewCode": "코드 보기",
+    "techStack": "기술 스택",
+    "keyFeatures": "주요 기능"
+  },
+  "contact": {
+    "title": "함께 멋진 것을",
+    "subtitle": "만들어봐요",
+    "description": "새로운 아이디어나 프로젝트가 있다면 들려주세요.",
+    "highlight": "좋은 경험으로 구현할 방법",
+    "description2": "을 함께 이야기하고 싶습니다 ✨",
+    "form": {
+      "name": "이름",
+      "email": "이메일",
+      "projectDetails": "프로젝트 내용",
+      "namePlaceholder": "이름을 입력해주세요",
+      "emailPlaceholder": "email@example.com",
+      "projectPlaceholder": "프로젝트에 관해 알려주세요...",
+      "sendMessage": "메시지 보내기 ✨",
+      "required": "*"
+    },
+    "directContact": "아래 채널로 직접 연락하셔도 됩니다."
+  },
+  "notFound": {
+    "message": "요청하신 페이지를 찾을 수 없습니다.",
+    "backHome": "홈으로 돌아가기"
+  },
+  "loading": {
+    "title": "불러오는 중...",
+    "description": "멋진 화면을 준비하고 있어요 ✨"
+  },
+  "common": {
+    "loading": "불러오는 중...",
+    "error": "오류가 발생했습니다",
+    "success": "완료",
+    "close": "닫기",
+    "open": "열기"
+  }
+}

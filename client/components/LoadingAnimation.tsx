@@ -1,15 +1,24 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
+const LOADING_SHOWN_KEY = "portfolio-loading-shown";
 
 export default function LoadingAnimation() {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(
+    () => sessionStorage.getItem(LOADING_SHOWN_KEY) !== "true",
+  );
+  const { t } = useTranslation();
 
   useEffect(() => {
+    if (!isVisible) return;
+
+    sessionStorage.setItem(LOADING_SHOWN_KEY, "true");
     const timer = setTimeout(() => {
       setIsVisible(false);
     }, 2000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isVisible]);
 
   if (!isVisible) return null;
 
@@ -21,7 +30,7 @@ export default function LoadingAnimation() {
           <div className="w-20 h-20 mx-auto mb-4 relative">
             <img 
               src="/cat.png" 
-              alt="Loading..." 
+              alt={t("loading.title")}
               className="w-full h-full object-contain animate-bounce"
             />
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
@@ -36,8 +45,8 @@ export default function LoadingAnimation() {
         
         {/* 로딩 텍스트 */}
         <div className="space-y-2">
-          <h2 className="text-2xl text-gray-800">Loading...</h2>
-          <p className="text-gray-600 font-light">Preparing something amazing ✨</p>
+          <h2 className="text-2xl text-gray-800">{t("loading.title")}</h2>
+          <p className="text-gray-600 font-light">{t("loading.description")}</p>
         </div>
         
         {/* 로딩 바 */}

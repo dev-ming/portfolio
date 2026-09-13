@@ -4,8 +4,39 @@ import { useLocation } from "react-router-dom";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
+
+  const currentLanguage = i18n.resolvedLanguage?.startsWith("en") ? "en" : "ko";
+
+  const changeLanguage = (language: "ko" | "en") => {
+    i18n.changeLanguage(language);
+    localStorage.setItem("portfolio-language", language);
+    document.documentElement.lang = language;
+  };
+
+  const LanguageSwitcher = () => (
+    <div
+      className="flex items-center rounded-full border border-gray-200 bg-white p-1 text-xs"
+      aria-label={t("navigation.language")}
+    >
+      {(["ko", "en"] as const).map((language) => (
+        <button
+          key={language}
+          type="button"
+          onClick={() => changeLanguage(language)}
+          aria-pressed={currentLanguage === language}
+          className={`rounded-full px-2.5 py-1 transition-colors ${
+            currentLanguage === language
+              ? "bg-primary text-white"
+              : "text-gray-500 hover:text-primary"
+          }`}
+        >
+          {language.toUpperCase()}
+        </button>
+      ))}
+    </div>
+  );
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-50 h-16 md:h-20">
@@ -48,6 +79,7 @@ export default function Header() {
           >
             {t('navigation.contact')}
           </a>
+          <LanguageSwitcher />
         </div>
         {/* Mobile Menu Button */}
         <button
@@ -78,7 +110,7 @@ export default function Header() {
         <div className={`absolute top-0 right-0 h-[100vh] w-80 max-w-[70vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
-            <h2 className="text-lg font-medium text-gray-800">Menu</h2>
+            <h2 className="text-lg font-medium text-gray-800">{t("navigation.menu")}</h2>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
               className="p-2 hover:bg-gray-100 rounded-full transition-colors"
@@ -131,6 +163,9 @@ export default function Header() {
               >
                 {t('navigation.contact')}
               </a>
+              <div className="pt-2">
+                <LanguageSwitcher />
+              </div>
             </div>
           </div>
         </div>

@@ -13,6 +13,8 @@ import Contact from "./pages/Contact";
 import ProjectDetail from "./pages/ProjectDetail";
 import NotFound from "./pages/NotFound";
 
+document.documentElement.lang = localStorage.getItem("portfolio-language") || "ko";
+
 const queryClient = new QueryClient();
 
 const App = () => (

@@ -3,7 +3,9 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "menu": "Menu",
+    "language": "Language"
   },
   "hero": {
     "greeting": "Hi, I'm",
@@ -62,6 +64,23 @@
       "required": "*"
     },
     "directContact": "Or connect with me directly:"
+  },
+  "projectDetail": {
+    "back": "Back",
+    "notFound": "Project not found",
+    "backHome": "Back to Home",
+    "viewLive": "View Live Site",
+    "viewCode": "View Code",
+    "techStack": "Tech Stack",
+    "keyFeatures": "Key Features"
+  },
+  "notFound": {
+    "message": "Oops! Page not found",
+    "backHome": "Return to Home"
+  },
+  "loading": {
+    "title": "Loading...",
+    "description": "Preparing something amazing ✨"
   },
   "common": {
     "loading": "Loading...",

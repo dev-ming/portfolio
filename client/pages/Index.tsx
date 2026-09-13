@@ -7,15 +7,16 @@ import LoadingAnimation from "@/components/LoadingAnimation";
 
 interface Project {
   id: string;
-  title: string;
-  description: string;
+  title: { ko: string; en: string };
+  description: { ko: string; en: string };
   image: string;
   techStack: string[];
 }
 
 export default function Index() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const language = i18n.resolvedLanguage?.startsWith("en") ? "en" : "ko";
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/dev-ming", label: "GitHub" },
@@ -25,23 +26,52 @@ export default function Index() {
 
   const projects: Project[] = [
     {
+      id: "fanista",
+      title: { ko: "Fanista", en: "Fanista" },
+      description: {
+        ko: "라틴아메리카 K-pop 팬을 위한 커뮤니티·캠페인·청원 플랫폼입니다.",
+        en: "A community, campaign, and petition platform for K-pop fans in Latin America."
+      },
+      image: "/fanista-seo.png",
+      techStack: ["Next.js", "React", "TypeScript", "TailwindCSS", "TanStack Query", "Hono", "Prisma"]
+    },
+    {
+      id: "blackpink-deadline-event",
+      title: { ko: "K-pop 팝업 이벤트 사이트 - BLACKPINK", en: "K-pop Pop-up Event Site - BLACKPINK" },
+      description: {
+        ko: "BLACKPINK DEADLINE 리마 팝업 이벤트 안내와 MD 상품, 팬 게스트북을 제공하는 웹사이트입니다.",
+        en: "A website for the BLACKPINK DEADLINE pop-up in Lima, featuring event details, merchandise, and a fan guestbook."
+      },
+      image: "/blackpink-deadline-event.png",
+      techStack: ["React", "TypeScript", "Vite", "TailwindCSS", "Firebase", "Framer Motion"]
+    },
+    {
       id: "nothing-stays-static",
-      title: "Nothing Stays Static",
-      description: "A creative portfolio website showcasing dynamic animations and interactive elements.",
+      title: { ko: "Nothing Stays Static", en: "Nothing Stays Static" },
+      description: {
+        ko: "다양한 애니메이션과 인터랙션을 실험하고 기록한 창작 웹 갤러리입니다.",
+        en: "A creative portfolio website showcasing dynamic animations and interactive elements."
+      },
       image: "/nothing-stays-static.png",
       techStack: ["React", "CSS", "Motion", "Tailwind"]
     },
     {
       id: "kingdom-story-reboot",
-      title: "Kingdom Story Reboot",
-      description: "킹덤스토리 창천 사전예약 페이지",
+      title: { ko: "Kingdom Story Reboot", en: "Kingdom Story Reboot" },
+      description: {
+        ko: "킹덤스토리 창천의 사전예약을 위한 반응형 프로모션 페이지입니다.",
+        en: "A responsive pre-registration campaign page for Kingdom Story Reboot."
+      },
       image: "/kingdomstory-reboot.png",
       techStack: ["React", "TypeScript", "TailwindCSS", "Vite"]
     },
     {
       id: "kingdom-heroes-war-marketplace",
-      title: "Kingdom Heroes War Marketplace",
-      description: "A marketplace platform for Kingdom Heroes War game featuring NFT trading and user management.",
+      title: { ko: "Kingdom Heroes War Marketplace", en: "Kingdom Heroes War Marketplace" },
+      description: {
+        ko: "NFT 거래와 게임 자산 관리를 지원하는 Kingdom Heroes War 마켓플레이스입니다.",
+        en: "A marketplace platform for Kingdom Heroes War featuring NFT trading and game asset management."
+      },
       image: "/marketplace.png",
       techStack: ["React", "Next.js", "TypeScript", "TailwindCSS", "recoil", "SWR", "wagmi", "Web3", "NFT"]
     }
@@ -104,15 +134,15 @@ export default function Index() {
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt={project.title[language]}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/80 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
-                      <h3 className="text-xl md:text-2xl font-bold mb-2">{project.title}</h3>
-                      <p className="text-sm md:text-base px-4">{project.description}</p>
+                      <h3 className="text-xl md:text-2xl font-bold mb-2">{project.title[language]}</h3>
+                      <p className="text-sm md:text-base px-4">{project.description[language]}</p>
                   </div>
                 </div>
               </div>
@@ -120,7 +150,7 @@ export default function Index() {
                 {/* Project Info */}
                 <div className="p-4 md:p-6">
                   <h3 className="text-lg md:text-xl text-gray-800 mb-2 group-hover:text-primary transition-colors">
-                    {project.title}
+                    {project.title[language]}
                   </h3>
                   {/* <p className="text-sm md:text-base text-gray-600 mb-4 line-clamp-2">
                     {project.description}

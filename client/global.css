@@ -102,6 +102,11 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+  }
+
+  html:lang(ko) body {
+    font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
   }
 }
 
