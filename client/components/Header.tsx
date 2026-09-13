@@ -50,7 +50,13 @@ export default function Header() {
           window.location.href = '/';
         }}>
           <div className="flex items-center gap-2">
-            <img src="/cat.png" alt="Jenna" className="h-12 w-12" />
+            <span
+              role="img"
+              aria-label="Jenna cat"
+              className="font-mono text-xl font-semibold tracking-[-0.08em] md:text-2xl"
+            >
+              {"/ᐠ.ꞈ.ᐟ\\"}
+            </span>
           </div>
         </div>
         <div className="hidden md:flex items-center gap-6">

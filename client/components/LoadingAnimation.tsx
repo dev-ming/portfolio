@@ -25,14 +25,16 @@ export default function LoadingAnimation() {
   return (
     <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
       <div className="text-center">
-        {/* 귀여운 고양이 로딩 애니메이션 */}
+        {/* 고양이 로딩 애니메이션 */}
         <div className="relative mb-8">
-          <div className="w-20 h-20 mx-auto mb-4 relative">
-            <img 
-              src="/cat.png" 
-              alt={t("loading.title")}
-              className="w-full h-full object-contain animate-bounce"
-            />
+          <div className="relative mx-auto mb-4 flex h-20 min-w-20 items-center justify-center">
+            <span
+              role="img"
+              aria-label={t("loading.title")}
+              className="animate-bounce whitespace-nowrap font-mono text-4xl font-semibold tracking-[-0.08em] text-pink-500"
+            >
+              {"/ᐠ.ꞈ.ᐟ\\"}
+            </span>
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
               <div className="flex space-x-1">
                 <div className="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></div>
