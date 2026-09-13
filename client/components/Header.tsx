@@ -15,10 +15,15 @@ export default function Header() {
     document.documentElement.lang = language;
   };
 
-  const LanguageSwitcher = () => (
+  const LanguageSwitcher = ({ mobile = false }: { mobile?: boolean }) => (
     <div
-      className="flex items-center rounded-full border border-gray-200 bg-white p-1 text-xs"
+      className={`flex items-center border border-gray-200 bg-white p-1 ${
+        mobile
+          ? "w-full rounded-xl text-sm shadow-sm"
+          : "rounded-full text-xs"
+      }`}
       aria-label={t("navigation.language")}
+      role="group"
     >
       {(["ko", "en"] as const).map((language) => (
         <button
@@ -26,10 +31,10 @@ export default function Header() {
           type="button"
           onClick={() => changeLanguage(language)}
           aria-pressed={currentLanguage === language}
-          className={`rounded-full px-2.5 py-1 transition-colors ${
+          className={`${mobile ? "min-h-11 flex-1 rounded-lg px-4 py-2.5" : "rounded-full px-2.5 py-1"} font-medium transition-colors ${
             currentLanguage === language
-              ? "bg-primary text-white"
-              : "text-gray-500 hover:text-primary"
+              ? "bg-primary text-white shadow-sm"
+              : "text-gray-500 hover:bg-gray-50 hover:text-primary"
           }`}
         >
           {language.toUpperCase()}
@@ -41,11 +46,11 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-50 h-16 md:h-20">
       <div className="container mx-auto px-4 md:px-6 h-full flex items-center justify-between">
-        <div className="text-xl md:text-2xl font-bold text-pink-500 hover:text-pink-600 transition-colors cursor-pointer" onClick={() => {
+        <div className="cursor-pointer text-xl font-bold text-pink-500 transition-colors hover:text-pink-600 md:text-2xl" onClick={() => {
           window.location.href = '/';
         }}>
           <div className="flex items-center gap-2">
-            <img src="/cat.png" alt="Jenna" className="w-12 h-12" />
+            <img src="/cat.png" alt="Jenna" className="h-12 w-12" />
           </div>
         </div>
         <div className="hidden md:flex items-center gap-6">
@@ -163,8 +168,11 @@ export default function Header() {
               >
                 {t('navigation.contact')}
               </a>
-              <div className="pt-2">
-                <LanguageSwitcher />
+              <div className="border-t border-gray-100 pt-6">
+                <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-400">
+                  {t("navigation.language")}
+                </p>
+                <LanguageSwitcher mobile />
               </div>
             </div>
           </div>

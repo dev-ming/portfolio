@@ -1,5 +1,4 @@
-import { Mail, Github, Linkedin } from "lucide-react";
-import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
@@ -11,6 +10,8 @@ interface Project {
   description: { ko: string; en: string };
   image: string;
   techStack: string[];
+  category: { ko: string; en: string };
+  year: string;
 }
 
 export default function Index() {
@@ -18,13 +19,31 @@ export default function Index() {
   const navigate = useNavigate();
   const language = i18n.resolvedLanguage?.startsWith("en") ? "en" : "ko";
 
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/dev-ming", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/%EB%AF%BC%EC%A7%80-%EA%B9%80-8b606125a/", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:ruaaa1307@gmail.com", label: "Email" },
-];
-
   const projects: Project[] = [
+    {
+      id: "zios",
+      title: { ko: "ZiOS", en: "ZiOS" },
+      description: {
+        ko: "Codex 작업과 로컬 자동화 상태에 반응하는 Windows 데스크톱 펫입니다.",
+        en: "A Windows desktop pet that reacts to Codex work and local automation events."
+      },
+      image: "/zios-hero.png",
+      techStack: ["Tauri", "Rust", "React", "TypeScript", "Vite", "Windows"],
+      category: { ko: "데스크톱 제품", en: "Desktop Product" },
+      year: "2026"
+    },
+    {
+      id: "mintlab",
+      title: { ko: "Mintlab", en: "Mintlab" },
+      description: {
+        ko: "AI 도구와 프론트엔드 문제 해결 과정을 정리한 개발 기록 아카이브입니다.",
+        en: "A developer archive for AI tools, frontend problem-solving, and practical technical guides."
+      },
+      image: "/mintlab-terminal.png",
+      techStack: ["Next.js", "React", "TypeScript", "TailwindCSS", "MDX", "Vercel"],
+      category: { ko: "개발 아카이브", en: "Developer Archive" },
+      year: "2026"
+    },
     {
       id: "fanista",
       title: { ko: "Fanista", en: "Fanista" },
@@ -33,7 +52,9 @@ export default function Index() {
         en: "A community, campaign, and petition platform for K-pop fans in Latin America."
       },
       image: "/fanista-seo.png",
-      techStack: ["Next.js", "React", "TypeScript", "TailwindCSS", "TanStack Query", "Hono", "Prisma"]
+      techStack: ["Next.js", "React", "TypeScript", "TailwindCSS", "TanStack Query", "Hono", "Prisma"],
+      category: { ko: "팬덤 플랫폼", en: "Fandom Platform" },
+      year: "2026"
     },
     {
       id: "blackpink-deadline-event",
@@ -43,7 +64,9 @@ export default function Index() {
         en: "A website for the BLACKPINK DEADLINE pop-up in Lima, featuring event details, merchandise, and a fan guestbook."
       },
       image: "/blackpink-deadline-event.png",
-      techStack: ["React", "TypeScript", "Vite", "TailwindCSS", "Firebase", "Framer Motion"]
+      techStack: ["React", "TypeScript", "Vite", "TailwindCSS", "Firebase", "Framer Motion"],
+      category: { ko: "이벤트 경험", en: "Event Experience" },
+      year: "2025"
     },
     {
       id: "nothing-stays-static",
@@ -53,7 +76,9 @@ export default function Index() {
         en: "A creative portfolio website showcasing dynamic animations and interactive elements."
       },
       image: "/nothing-stays-static.png",
-      techStack: ["React", "CSS", "Motion", "Tailwind"]
+      techStack: ["React", "CSS", "Motion", "Tailwind"],
+      category: { ko: "모션 실험", en: "Motion Experiments" },
+      year: "2024"
     },
     {
       id: "kingdom-story-reboot",
@@ -63,7 +88,9 @@ export default function Index() {
         en: "A responsive pre-registration campaign page for Kingdom Story Reboot."
       },
       image: "/kingdomstory-reboot.png",
-      techStack: ["React", "TypeScript", "TailwindCSS", "Vite"]
+      techStack: ["React", "TypeScript", "TailwindCSS", "Vite"],
+      category: { ko: "게임 프로모션", en: "Game Promotion" },
+      year: "2023"
     },
     {
       id: "kingdom-heroes-war-marketplace",
@@ -73,10 +100,21 @@ export default function Index() {
         en: "A marketplace platform for Kingdom Heroes War featuring NFT trading and game asset management."
       },
       image: "/marketplace.png",
-      techStack: ["React", "Next.js", "TypeScript", "TailwindCSS", "recoil", "SWR", "wagmi", "Web3", "NFT"]
+      techStack: ["React", "Next.js", "TypeScript", "TailwindCSS", "recoil", "SWR", "wagmi", "Web3", "NFT"],
+      category: { ko: "Web3 마켓플레이스", en: "Web3 Marketplace" },
+      year: "2022"
     }
   ];
 
+  const mediaStyles: Record<string, string> = {
+    zios: "bg-[#17151d] object-contain",
+    mintlab: "bg-[#11151b] object-contain",
+    fanista: "bg-[#f5f2f7] object-cover object-top",
+    "blackpink-deadline-event": "bg-black object-cover",
+    "nothing-stays-static": "bg-[#f5f5f5] object-cover",
+    "kingdom-story-reboot": "bg-[#141414] object-cover",
+    "kingdom-heroes-war-marketplace": "bg-[#0b1017] object-cover",
+  };
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
@@ -95,85 +133,52 @@ export default function Index() {
       <Header />
 
 
-      {/* Projects Gallery */}
-      <section className="py-12 md:py-20 px-4 md:px-6 relative pt-24 md:pt-32">
+      <section className="relative px-4 pb-20 pt-24 md:px-6 md:pb-32 md:pt-32">
         <div className="container mx-auto max-w-7xl">
-          {/* Section Header */}
-          {/* <div className="text-center mb-12 md:mb-16">
-            <div className="space-y-4">
-              <div className="flex items-center justify-center gap-2 md:gap-4">
-                <h2 className="text-3xl md:text-5xl font-bold text-black">{t('projects.title')}</h2>
-                <div className="relative">
-                  <div className="w-full h-3 md:h-4 bg-primary/20 absolute -bottom-1"></div>
-                  <h2 className="text-3xl md:text-5xl font-bold text-black">{t('projects.subtitle')}</h2>
-                </div>
-                <div className="text-3xl md:text-5xl font-bold text-transparent absolute">
-                  {t('projects.favorite')}
-                </div>
-              </div>
-              <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-                {t('projects.description')}{" "}
-                <span className="relative whitespace-nowrap">
-                  <span className="absolute -bottom-1 left-0 w-full h-3 bg-yellow-200 opacity-30"></span>
-                  <span className="relative font-medium">{t('projects.highlight')}</span>
-                </span>{" "}
-                {t('projects.description2')}
-              </p>
-            </div>
-          </div> */}
-
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-12">
-            {projects.map((project) => (
-              <div
+          <div className="grid grid-cols-1 gap-x-7 gap-y-14 md:grid-cols-2 md:gap-y-20 lg:gap-x-10">
+            {projects.map((project, index) => (
+              <article
                 key={project.id}
-                className="group relative bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
+                role="link"
+                tabIndex={0}
+                aria-label={`${project.title[language]} ${language === "ko" ? "프로젝트 보기" : "View project"}`}
+                className="group cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-4"
                 onClick={() => navigate(`/project/${project.id}`)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    navigate(`/project/${project.id}`);
+                  }
+                }}
               >
-              {/* Project Image */}
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[16/10] overflow-hidden bg-[#f5f5f4] shadow-[0_14px_45px_rgba(17,17,24,0.08)] transition-shadow duration-500 group-hover:shadow-[0_24px_65px_rgba(17,17,24,0.14)]">
                   <img
                     src={project.image}
                     alt={project.title[language]}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className={`h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.025] ${mediaStyles[project.id]}`}
                   />
-                  
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/80 transition-all duration-300 flex items-center justify-center">
-                    <div className="text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
-                      <h3 className="text-xl md:text-2xl font-bold mb-2">{project.title[language]}</h3>
-                      <p className="text-sm md:text-base px-4">{project.description[language]}</p>
-                  </div>
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </div>
-              </div>
 
-                {/* Project Info */}
-                <div className="p-4 md:p-6">
-                  <h3 className="text-lg md:text-xl text-gray-800 mb-2 group-hover:text-primary transition-colors">
-                    {project.title[language]}
-                  </h3>
-                  {/* <p className="text-sm md:text-base text-gray-600 mb-4 line-clamp-2">
-                    {project.description}
-                  </p> */}
-                  
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {project.techStack.slice(0, 5).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs md:text-sm"
-                      >
-                        {tech}
-                    </span>
-                    ))}
-                    {project.techStack.length > 5 && (
-                      <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs md:text-sm">
-                        +{project.techStack.length - 5}
-                      </span>
-                    )}
+                <div className="mt-5 border-t border-black/15 pt-4 md:mt-6">
+                  <div className="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.16em] text-gray-400">
+                    <span>{String(index + 1).padStart(2, "0")} · {project.category[language]}</span>
+                    <span>{project.year}</span>
+                  </div>
+                  <div className="mt-3 flex items-start justify-between gap-4">
+                    <h2 className="text-2xl font-medium tracking-[-0.035em] text-gray-950 transition-colors duration-300 group-hover:text-primary md:text-[1.7rem]">
+                      {project.title[language]}
+                    </h2>
+                    <ArrowUpRight className="mt-1 shrink-0 text-gray-400 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" size={18} />
+                  </div>
+                  <p className="mt-3 max-w-xl text-sm leading-6 text-gray-500 md:text-[15px]">
+                    {project.description[language]}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-gray-400">
+                    {project.techStack.slice(0, 3).map((tech) => <span key={tech}>{tech}</span>)}
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
