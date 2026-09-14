@@ -102,7 +102,7 @@ export default function Index() {
       image: "/marketplace.png",
       techStack: ["React", "Next.js", "TypeScript", "TailwindCSS", "recoil", "SWR", "wagmi", "Web3", "NFT"],
       category: { ko: "Web3 마켓플레이스", en: "Web3 Marketplace" },
-      year: "2022"
+      year: "2024"
     }
   ];
 
@@ -115,6 +115,18 @@ export default function Index() {
     "kingdom-story-reboot": "bg-[#141414] object-cover",
     "kingdom-heroes-war-marketplace": "bg-[#0b1017] object-cover",
   };
+
+  const projectOrder = [
+    "fanista",
+    "kingdom-heroes-war-marketplace",
+    "blackpink-deadline-event",
+    "zios",
+    "mintlab",
+    "nothing-stays-static",
+  ];
+  const visibleProjects = projectOrder
+    .map((id) => projects.find((project) => project.id === id))
+    .filter((project): project is Project => Boolean(project));
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
@@ -136,7 +148,7 @@ export default function Index() {
       <section className="relative px-4 pb-20 pt-24 md:px-6 md:pb-32 md:pt-32">
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-x-7 gap-y-14 md:grid-cols-2 md:gap-y-20 lg:gap-x-10">
-            {projects.map((project, index) => (
+            {visibleProjects.map((project, index) => (
               <article
                 key={project.id}
                 role="link"

@@ -200,7 +200,7 @@ const projectStories = {
     ]
   },
   "kingdom-heroes-war-marketplace": {
-    year: "2022",
+    year: "2024",
     role: { ko: "프론트엔드 개발", en: "Frontend Development" },
     type: { ko: "Web3 게임 마켓플레이스", en: "Web3 Game Marketplace" },
     sections: [
