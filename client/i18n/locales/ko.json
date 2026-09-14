@@ -4,6 +4,7 @@
     "about": "About",
     "projects": "Projects",
     "contact": "Contact",
+    "blog": "Blog",
     "menu": "Menu",
     "language": "언어"
   },
@@ -25,9 +26,9 @@
     "description2": "호기심으로 시작한 웹 개발은 이제",
     "highlight2": "사용자 중심의 디자인",
     "description2_2": "과 현대적인 개발 방식에 대한 꾸준한 탐구로 이어졌습니다. React와 TypeScript를 중심으로 모든 기기에서 편리하게 사용할 수 있는 반응형 인터페이스를 만듭니다.",
-    "description3": "개발하지 않을 때는 새로운 디자인 흐름을 살펴보거나 오픈소스에 기여하고, 다양한 애니메이션 라이브러리를 실험하며 웹에",
-    "highlight3": "생동감과 개성",
-    "description3_2": "을 더하는 방법을 찾습니다.",
+    "description3": "최근에는 AI를 활용해 반복 작업을 자동화하고,",
+    "highlight3": "더 나은 개발 워크플로",
+    "description3_2": "를 만드는 방법을 탐구하고 있습니다. 새로운 도구를 실제 프로젝트에 적용하며 작업 흐름을 효율적으로 개선하는 방법을 실험합니다.",
     "resumeCTA": "더 자세한 경력과 경험이 궁금하신가요?",
     "viewResume": "이력서 보기"
   },

@@ -90,6 +90,14 @@ export default function Header() {
           >
             {t('navigation.contact')}
           </a>
+          <a
+            href="https://mintlab-nu.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-light text-gray-800 transition-colors hover:text-primary"
+          >
+            {t('navigation.blog')}
+          </a>
           <LanguageSwitcher />
         </div>
         {/* Mobile Menu Button */}
@@ -173,6 +181,15 @@ export default function Header() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t('navigation.contact')}
+              </a>
+              <a
+                href="https://mintlab-nu.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-3 text-left text-lg font-light text-gray-800 transition-colors hover:text-primary"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('navigation.blog')}
               </a>
               <div className="border-t border-gray-100 pt-6">
                 <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-400">
