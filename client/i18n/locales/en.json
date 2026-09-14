@@ -62,7 +62,10 @@
       "emailPlaceholder": "your.email@example.com",
       "projectPlaceholder": "Tell me about your project...",
       "sendMessage": "Send Message ✨",
-      "required": "*"
+      "sending": "Sending...",
+      "required": "*",
+      "success": "Thanks! Your message has been sent. I'll reply to the email you provided.",
+      "error": "Sorry, the message could not be sent. Please email me directly at ruaaa1307@gmail.com."
     },
     "directContact": "Or connect with me directly:"
   },

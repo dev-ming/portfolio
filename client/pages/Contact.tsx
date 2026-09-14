@@ -10,6 +10,10 @@ export default function Contact() {
     email: "",
     projectDetails: "",
   });
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
+    "idle",
+  );
+  const [honeypot, setHoneypot] = useState("");
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/dev-ming", label: "GitHub" },
@@ -25,12 +29,43 @@ export default function Contact() {
       ...prev,
       [name]: value,
     }));
+    if (status === "success" || status === "error") setStatus("idle");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    if (status === "sending") return;
+    setStatus("sending");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          subject: `Portfolio inquiry from ${formData.name}`,
+          from_name: "Portfolio Contact Form",
+          name: formData.name,
+          email: formData.email,
+          message: formData.projectDetails,
+          botcheck: honeypot,
+        }),
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message ?? "Submission failed");
+      }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", projectDetails: "" });
+    } catch (error) {
+      console.error("Contact form submission failed:", error);
+      setStatus("error");
+    }
   };
 
   return (
@@ -121,13 +156,37 @@ export default function Contact() {
                   required
                 ></textarea>
               </div>
-              <div className="text-center">
+              {/* Honeypot: hidden from users, filled in by bots */}
+              <input
+                type="checkbox"
+                name="botcheck"
+                tabIndex={-1}
+                autoComplete="off"
+                checked={honeypot !== ""}
+                onChange={(e) => setHoneypot(e.target.checked ? "true" : "")}
+                className="hidden"
+                aria-hidden="true"
+              />
+              <div className="text-center space-y-4">
                 <button
                   type="submit"
-                  className="w-full md:w-auto bg-gradient-to-r from-primary-700 to-primary text-white px-6 md:px-12 py-3 md:py-4 rounded-full text-base md:text-lg font-medium shadow-lg hover:shadow-xl transition-shadow"
+                  disabled={status === "sending"}
+                  className="w-full md:w-auto bg-gradient-to-r from-primary-700 to-primary text-white px-6 md:px-12 py-3 md:py-4 rounded-full text-base md:text-lg font-medium shadow-lg hover:shadow-xl transition-shadow disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-lg"
                 >
-                  {t('contact.form.sendMessage')}
+                  {status === "sending"
+                    ? t("contact.form.sending")
+                    : t("contact.form.sendMessage")}
                 </button>
+                {status === "success" && (
+                  <p role="status" className="text-sm md:text-base text-green-600">
+                    {t("contact.form.success")}
+                  </p>
+                )}
+                {status === "error" && (
+                  <p role="alert" className="text-sm md:text-base text-red-600">
+                    {t("contact.form.error")}
+                  </p>
+                )}
               </div>
             </form>
           </div>

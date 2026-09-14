@@ -71,7 +71,10 @@
       "emailPlaceholder": "email@example.com",
       "projectPlaceholder": "프로젝트에 관해 알려주세요...",
       "sendMessage": "메시지 보내기 ✨",
-      "required": "*"
+      "sending": "보내는 중...",
+      "required": "*",
+      "success": "메시지가 전송되었습니다. 남겨주신 이메일로 답장드리겠습니다.",
+      "error": "전송에 실패했습니다. ruaaa1307@gmail.com 으로 직접 메일 보내주세요."
     },
     "directContact": "아래 채널로 직접 연락하셔도 됩니다."
   },
