@@ -44,7 +44,7 @@ export default function About() {
               {/* <div className="w-12 md:w-16 h-1 bg-primary rounded-full mx-auto"></div> */}
             </div>
 
-            <div className="space-y-4 font-light md:space-y-6 text-sm md:text-[18px] text-gray-800 leading-relaxed md:leading-[29.25px] max-w-3xl mx-auto">
+            <div className="space-y-4 font-light md:space-y-6 text-sm md:text-[18px] text-gray-800 text-left break-keep leading-relaxed md:leading-[29.25px] max-w-[640px] mx-auto">
               <p>
                 {t('about.description1')}{t('about.description1') ? " " : ""}
                 <span className="font-medium relative whitespace-nowrap">
