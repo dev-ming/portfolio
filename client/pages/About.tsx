@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 import Header from "@/components/Header";
 
 export default function About() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isKorean = i18n.resolvedLanguage?.startsWith("ko");
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/dev-ming", label: "GitHub" },
@@ -31,7 +32,7 @@ export default function About() {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center space-y-6 md:space-y-8">
             <div className="space-y-4">
-              <div className="flex items-center justify-center gap-2 md:gap-4">
+              <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4">
                 <h2 className="text-xl md:text-3xl font-bold text-gray-800 leading-tight md:leading-[48px]">
                   {t('about.title')}
                 </h2>
@@ -45,11 +46,11 @@ export default function About() {
 
             <div className="space-y-4 font-light md:space-y-6 text-sm md:text-[18px] text-gray-800 leading-relaxed md:leading-[29.25px] max-w-3xl mx-auto">
               <p>
-                {t('about.description1')}{" "}
+                {t('about.description1')}{t('about.description1') ? " " : ""}
                 <span className="font-medium relative whitespace-nowrap">
                   {t('about.highlight1')}
                   <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
-                </span>{" "}
+                </span>{isKorean ? "" : " "}
                 {t('about.description1_2')}
               </p>
               <p>
@@ -57,16 +58,26 @@ export default function About() {
                 <span className="font-medium relative whitespace-nowrap">
                   {t('about.highlight2')}
                   <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
-                </span>{" "}
+                </span>{isKorean ? "" : " "}
                 {t('about.description2_2')}
               </p>
               <p>
-                {t('about.description3')}{" "}
+                {t('about.description3')}{t('about.description3') ? " " : ""}
                 <span className="font-medium relative">
                   {t('about.highlight3')}
                   <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
-                </span>{" "}
+                </span>{isKorean ? "" : " "}
                 {t('about.description3_2')}
+                {isKorean && (
+                  <>
+                    {" "}
+                    <span className="font-medium relative whitespace-nowrap">
+                      {t('about.highlight3_2')}
+                      <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200 opacity-30"></span>
+                    </span>
+                    {t('about.description3_3')}
+                  </>
+                )}
               </p>
             </div>
 

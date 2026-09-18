@@ -4,7 +4,8 @@ import { useTranslation } from "react-i18next";
 import Header from "@/components/Header";
 
 export default function Contact() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isKorean = i18n.resolvedLanguage?.startsWith("ko");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -89,7 +90,7 @@ export default function Contact() {
             <div className="text-4xl md:text-6xl mb-6 md:mb-8">💌</div>
             <div className="space-y-4">
               <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 relative">
-                <h2 className="text-xl md:text-3xl text-gray-800 font-bold">{t('contact.title')}</h2>
+                {t('contact.title') && <h2 className="text-xl md:text-3xl text-gray-800 font-bold">{t('contact.title')}</h2>}
                 <div className="relative w-auto">
                   <div className="w-full -bottom-1 h-3 md:h-4 bg-primary/20 opacity-100 absolute"></div>
                   <h2 className="text-xl md:text-3xl text-gray-800 font-bold">
@@ -97,14 +98,14 @@ export default function Contact() {
                   </h2>
                 </div>
               </div>
-              <p className="text-base md:text-xl text-gray-600 font-light max-w-3xl mx-auto px-4">
+              <p className="text-base md:text-xl text-gray-600 font-light max-w-3xl mx-auto px-4 break-keep">
                 {t('contact.description')}{" "}
                 <span className="relative whitespace-nowrap">
                   <span className="absolute -bottom-1 left-0 w-full h-3 bg-yellow-200 opacity-30"></span>
                   <span className="relative font-medium">{t('contact.highlight')}</span>
                 </span>
-                {" "}
-                <span className="ml-2 font-medium">{t('contact.description2')}</span>
+                {isKorean ? t('contact.descriptionSuffix') : " "}
+                <span className={isKorean ? "block" : "ml-2 font-medium"}>{t('contact.description2')}</span>
               </p>
             </div>
           </div>
